@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace ctrgamer._03_entidades
 {
-    public class Jogos
+    public class usuario
     {
 
-        public int id { get; set; }
         public string Nome { get; set; }
-        public string Descricao { get; set; }
-        public double preco { get; set; }
-        public DateTime DataDeLancamento { get; set; }
+        public double cpf { get; set; }
+        public int idade { get; set; }
+        public string Email { get; set; }
+        public  string Senha { get; set; }
     }
 }

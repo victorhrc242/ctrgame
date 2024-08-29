@@ -1,3 +1,5 @@
+using ctrgamer;
+using ctrgamer._04_Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,7 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
-
+inicializadorBd.iinicializador();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
