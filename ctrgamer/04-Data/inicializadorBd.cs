@@ -30,6 +30,24 @@ public static class inicializadorBd
                 command.ExecuteNonQuery();
             }
 
+
+        }
+        using (var connection = new SQLiteConnection(ConnectioString))
+        {
+            connection.Open();
+            string commandoSQL = @" 
+                CREATE TABLE IF NOT EXISTS JOGO(                
+                ID INTEGER PRIMARY KEY AUTOINCREMENT,
+                NOME TEXT NOT NULL,
+                DESCRICAO TEXT NOT NULL,
+                PRECO REAL NOT NULL,
+                DATA DATETIME NOT NULL
+          
+            );";
+            using (var command = new SQLiteCommand(commandoSQL, connection))
+            {
+                command.ExecuteNonQuery();
+            }
         }
     }
 }

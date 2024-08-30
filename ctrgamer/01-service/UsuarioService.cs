@@ -17,7 +17,21 @@ namespace ctrgamer._01_service
             {
                 repositorio.Adicionar(usuario);
             }
-        
+
+        public List<usuario> Listar()
+        {
+            return UsuarioRepositor.listar();
+        }
+        public void editar(int id, usuario usuario)
+        {
+            repositorio.Editar(id, usuario);
+        }
+        public void Remover(int id)
+        {
+
+            repositorio.Remover(id);
+        }
+
 
     }
 }

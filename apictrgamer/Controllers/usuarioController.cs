@@ -20,4 +20,23 @@ public class usuarioController :ControllerBase
     {
         service.Adicionar(u);
     }
+
+    [HttpGet("Listar-aluno")]
+    public List<usuario> Listaraluno()
+    {
+
+
+
+        return service.Listar();
+    }
+    [HttpDelete("Remover-aluno")]
+    public void Removeralunoaluno(int id)
+    {
+        service.Remover(id);
+    }
+    [HttpPut("editar-aluno")]
+    public void editaraluno(int id, usuario usuario)
+    {
+        service.editar(id, usuario);
+    }
 }
