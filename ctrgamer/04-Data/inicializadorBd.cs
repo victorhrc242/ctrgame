@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ctrgamer._03_entidades;
+using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Linq;
@@ -44,10 +45,32 @@ public static class inicializadorBd
                 DATA DATETIME NOT NULL
           
             );";
+
             using (var command = new SQLiteCommand(commandoSQL, connection))
             {
                 command.ExecuteNonQuery();
             }
+
+
         }
+        using (var connection = new SQLiteConnection(ConnectioString))
+        {
+            connection.Open();
+            string commandoSQL = @"
+                    CREATE TABLE IF NOT EXISTS carrinho(
+                    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+                    DATA DATETIME NOT NULL,
+                    NOMEJOGO NVARCHAR NULL,
+                    VALORTOTAL DECIMAL NULL,
+                    FORMALDEPAGAMENTO NVARCHAR(50) NOT NULL
+                );";
+
+            using (var command = new SQLiteCommand(commandoSQL, connection))
+            {
+                command.ExecuteNonQuery();
+            }
+
+        }
+
     }
 }
