@@ -10,12 +10,12 @@ namespace ctrgamer._03_entidades
     public class Carrinho
     {
 
-        public int id { get; set; }
-        public DateTime Data { get; set; }
-        public string nomejogo { get; set; }
-        public double ValorTotal { get; set; }
+        public int ID { get; set; }
+        public DateTime DATA { get; set; }
+        public string NOMEJOGO { get; set; }
+        public double VALORTOTAL { get; set; }
         [Required]
-        public string Formapagamento { get; set; }
+        public string FORMALDEPAGAMENTO { get; set; }
 
     }
 }

@@ -28,9 +28,9 @@ public class carrinhoService
     {
         return repositorio.listar();
     }
-    public void editar(int id, Carrinho carrinho)
+    public void editar(Carrinho c)
         {
-            repositorio.Editar(id, carrinho);
+            repositorio.editar(c );
         }
         public void Remover(int id)
         {

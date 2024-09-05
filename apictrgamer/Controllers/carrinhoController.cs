@@ -17,7 +17,7 @@ public class carrinhoController : ControllerBase
     [HttpPost("adicionar-carrinho")]
     public void adicionaraluno(Carrinho u)
     {
-        service.Adicionar(u);
+       service.Adicionar(u);
     }
 
     [HttpGet("Listar-compras")]
@@ -34,8 +34,8 @@ public class carrinhoController : ControllerBase
         service.Remover(id);
     }
     [HttpPut("editar-compra")]
-    public void editarcompra(int id, Carrinho carrinho)
+    public void editarcompra(Carrinho c)
     {
-        service.editar(id, carrinho);
+        service.editar(c);
     }
 }

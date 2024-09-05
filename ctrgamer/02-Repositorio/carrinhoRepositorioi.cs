@@ -1,4 +1,6 @@
 ﻿using ctrgamer._03_entidades;
+using Dapper;
+using Dapper.Contrib.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -21,89 +23,38 @@ namespace ctrgamer._02_Repositorio
         
 
 
-        public void Adicionar(Carrinho carrinho)
+        public void Adicionar(Carrinho c)
         {
-            using (var connection = new SQLiteConnection(ConnectionString))
-            {
-                connection.Open();
-                string commandInsert = @" Insert into carrinho(NOMEJOGO,DATA,VALORTOTAL,FORMALDEPAGAMENTO) values(@NOMEJOGO,@DATA,@VALORTOTAL,@FORMALDEPAGAMENTO)";
+            using var connection = new SQLiteConnection(ConnectionString);
+            connection.Insert<Carrinho>(c);
 
-                using (var command = new SQLiteCommand(commandInsert, connection))
-                {
-                    command.Parameters.AddWithValue("@NOMEJOGO", carrinho.nomejogo);
-                    command.Parameters.AddWithValue("@DATA", carrinho.Data);
-                    command.Parameters.AddWithValue("@VALORTOTAL", carrinho.ValorTotal);
-                    command.Parameters.AddWithValue("@FORMALDEPAGAMENTO", carrinho.Formapagamento);   
-                    command.ExecuteNonQuery();
-                }
-            }
         }
         public   List<Carrinho> listar()
         {
-
             {
-                List<Carrinho> c = new List<Carrinho>();
-                using (var connection = new SQLiteConnection(ConnectionString))
+                using var connection = new SQLiteConnection(ConnectionString);
                 {
-                    connection.Open();
-                    var selectcommand = "select ID, NOMEJOGO,DATA,VALORTOTAL,FORMALDEPAGAMENTO from carrinho";
-                    using (var command = new SQLiteCommand(selectcommand, connection))
-                    {
-                        using (var reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                Carrinho n = new Carrinho();
-
-                                n.id = int.Parse(reader["ID"].ToString());
-                                n.nomejogo = reader["NOMEJOGO"].ToString();
-                                n.Data = DateTime.Parse(reader["DATA"].ToString());
-                                n.ValorTotal = double.Parse(reader["VALORTOTAL"].ToString());
-                                n.Formapagamento = reader["FORMALDEPAGAMENTO"].ToString();
-                                c.Add(n);
-
-
-
-                            }
-                        }
-
-                    }
-
+                    List<Carrinho> c = connection.GetAll<Carrinho>().ToList();
                     return c;
                 }
             }
         }
-
+        public Carrinho Buscarporid(int id)
+        {
+            using var connection = new SQLiteConnection(ConnectionString);
+            return connection.Get<Carrinho>(id);
+        }
         public void Remover(int id)
         {
-            using (var connection = new SQLiteConnection(ConnectionString))
-            {
-                connection.Open();
-                string deleteCommand = "DELETE FROM carrinho WHERE ID =@ID";
-                using (var command = new SQLiteCommand(deleteCommand, connection))
-                {
-                    command.Parameters.AddWithValue("@ID", id);
-                    command.ExecuteNonQuery();
-                }
-
-            }
+            using var connection = new SQLiteConnection(ConnectionString);
+            Carrinho novoproduto = Buscarporid(id);
+            connection.Delete<Carrinho>(novoproduto);
         }
-        public void Editar(int id, Carrinho carrinho)
+        public void editar(Carrinho c)
         {
-            using (var connection = new SQLiteConnection(ConnectionString))
-            {
-                connection.Open();
-                string updatecommand = @"UPDATE carrinho SET FORMALDEPAGAMENTO=@FORMALDEPAGAMENTO WHERE ID=@ID";
-                using (var command = new SQLiteCommand(updatecommand, connection))
-                {
+            using var connection = new SQLiteConnection(ConnectionString);
 
-                    command.Parameters.AddWithValue("@ID", carrinho.id);
-
-                    command.Parameters.AddWithValue("@FORMALDEPAGAMENTOL",carrinho.Formapagamento );
-
-                    command.ExecuteNonQuery();
-                }
-            }
+            connection.Update<Carrinho>(c);
         }
     }
 }

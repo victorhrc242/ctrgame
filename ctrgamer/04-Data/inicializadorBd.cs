@@ -17,7 +17,7 @@ public static class inicializadorBd
         {
             connection.Open();
             string commandoSQL = @" 
-                CREATE TABLE IF NOT EXISTS usuario(                
+                CREATE TABLE IF NOT EXISTS usuarios(                
                 ID INTEGER PRIMARY KEY AUTOINCREMENT,
                 NOME TEXT NOT NULL,
                 EMAIL TEXT NOT NULL,
@@ -37,7 +37,7 @@ public static class inicializadorBd
         {
             connection.Open();
             string commandoSQL = @" 
-                CREATE TABLE IF NOT EXISTS JOGO(                
+                CREATE TABLE IF NOT EXISTS JOGOs(                
                 ID INTEGER PRIMARY KEY AUTOINCREMENT,
                 NOME TEXT NOT NULL,
                 DESCRICAO TEXT NOT NULL,
@@ -57,7 +57,7 @@ public static class inicializadorBd
         {
             connection.Open();
             string commandoSQL = @"
-                    CREATE TABLE IF NOT EXISTS carrinho(
+                    CREATE TABLE IF NOT EXISTS carrinhos(
                     ID INTEGER PRIMARY KEY AUTOINCREMENT,
                     DATA DATETIME NOT NULL,
                     NOMEJOGO NVARCHAR NULL,
