@@ -11,8 +11,11 @@ namespace ctrgamer._01_service
     public class UsuarioService
     {
 
-      UsuarioRepositor repositorio=new UsuarioRepositor();
-        
+      UsuarioRepositor repositorio { get; set; }
+        public UsuarioService(string connectionString)
+        {
+            repositorio=new UsuarioRepositor(connectionString);
+        }
             public void Adicionar(usuario usuario)
             {
                 repositorio.Adicionar(usuario);

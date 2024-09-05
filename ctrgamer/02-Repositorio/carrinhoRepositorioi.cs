@@ -10,14 +10,15 @@ namespace ctrgamer._02_Repositorio
 {
     public class carrinhoRepositorioi
     {
-        public carrinhoRepositorioi()
+        private  readonly  string ConnectionString;
+        public  carrinhoRepositorioi ( string  connectionString)
         {
 
-
+            ConnectionString = connectionString;
 
         }
 
-        private const string ConnectionString = "Data Source=Ctrgame.db";
+        
 
 
         public void Adicionar(Carrinho carrinho)
@@ -37,7 +38,7 @@ namespace ctrgamer._02_Repositorio
                 }
             }
         }
-        public static List<Carrinho> listar()
+        public   List<Carrinho> listar()
         {
 
             {

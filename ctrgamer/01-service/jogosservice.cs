@@ -10,7 +10,12 @@ namespace ctrgamer._01_service;
 
 public class jogosservice
 {
-    Jogorepositorio repositorio = new Jogorepositorio();
+    Jogorepositorio repositorio { get; set; }
+
+    public jogosservice(string connectionString)
+    {
+        repositorio=new Jogorepositorio(connectionString);
+    }
 
     public void Adicionar(Jogos jogos)
     {

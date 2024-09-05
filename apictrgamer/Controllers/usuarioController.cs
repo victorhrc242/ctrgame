@@ -8,10 +8,11 @@ namespace apictrgamer.Controllers;
 public class usuarioController :ControllerBase
 {
 
-    UsuarioService service;
-    public usuarioController( )
+    private readonly  UsuarioService service;
+    public usuarioController(IConfiguration configuration)
     {
-        service = new UsuarioService();
+        string connectionString = configuration.GetConnectionString("DefaultConnection");
+        service = new UsuarioService(connectionString);
 
     }
 

@@ -6,10 +6,11 @@ namespace apictrgamer.Controllers;
 
 public class carrinhoController : ControllerBase
 {
-    carrinhoService service;
-    public carrinhoController()
+    private readonly carrinhoService service;
+    public carrinhoController(IConfiguration conficuration)
     {
-        service = new carrinhoService();
+        string connectionstring = conficuration.GetConnectionString("DefaultConnection");
+        service = new carrinhoService(connectionstring);
 
     }
 

@@ -10,15 +10,15 @@ namespace ctrgamer._02_Repositorio;
 
 public class UsuarioRepositor
 {
-
-    public UsuarioRepositor()
+    private readonly static string ConnectionString;
+    public UsuarioRepositor(string connectionString)
     {
 
-
+        connectionString = ConnectionString;
 
     }
 
-    private const string ConnectionString = "Data Source=Ctrgame.db";
+   
 
 
     public void Adicionar(usuario usuario)

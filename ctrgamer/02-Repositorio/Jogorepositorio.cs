@@ -1,6 +1,7 @@
 ﻿using ctrgamer._03_entidades;
 using System;
 using System.Collections.Generic;
+using System.Configuration.Internal;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
@@ -10,15 +11,15 @@ namespace ctrgamer._02_Repositorio;
 
 public class Jogorepositorio
 {
+    private readonly static string ConnectionString;
 
-    public Jogorepositorio()
+    public Jogorepositorio(string connectionString)
     {
-
-
-
+        connectionString = ConnectionString;
+        
     }
 
-    private const string ConnectionString = "Data Source=Ctrgame.db";
+  
 
 
     public void Adicionar(Jogos j)

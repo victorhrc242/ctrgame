@@ -11,10 +11,11 @@ public class jogoscontroller : ControllerBase
     
     
 
-        jogosservice service;
-        public jogoscontroller()
+      private readonly jogosservice service;
+        public jogoscontroller(IConfiguration configuration)
         {
-            service = new jogosservice();
+        string connectionString = configuration.GetConnectionString("DefaultConnection");
+            service = new jogosservice(connectionString);
 
         }
 

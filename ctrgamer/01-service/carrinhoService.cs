@@ -14,18 +14,21 @@ public class carrinhoService
 
    
 
-        carrinhoRepositorioi repositorio = new carrinhoRepositorioi();
-
+        carrinhoRepositorioi repositorio { get; set; }
+    public carrinhoService(string connectionString)
+    {
+        repositorio = new carrinhoRepositorioi(connectionString);
+    }
         public void Adicionar(Carrinho carrinho)
         {
             repositorio.Adicionar(carrinho);
         }
 
-        public List<Carrinho> Listar()
-        {
-            return carrinhoRepositorioi.listar();
-        }
-        public void editar(int id, Carrinho carrinho)
+    public List<Carrinho> Listar()
+    {
+        return repositorio.listar();
+    }
+    public void editar(int id, Carrinho carrinho)
         {
             repositorio.Editar(id, carrinho);
         }
