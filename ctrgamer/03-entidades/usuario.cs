@@ -10,36 +10,36 @@ namespace ctrgamer._03_entidades
 {
     public class usuario
     {
-        public int id { get; set; }
+        public int ID { get; set; }
 
 
-        [Required]
-        public string Nome { get; set; }
-
-
-
-
-
-
-        [Required(ErrorMessage ="falta de cpf")]
-        [MinLength(12)]
-        public double cpf { get; set; }
-        [Required]
-        [Range(16,100,ErrorMessage ="voce não tem idade suficiente")]
-        public int idade { get; set; }
+        //[Required]
+        public string NOME { get; set; }
 
 
 
 
-        [Required(ErrorMessage ="error email obrigatorio")]
-        [EmailAddress(ErrorMessage ="email invalido")]
-        public string Email { get; set; }
+
+
+        //[Required(ErrorMessage ="falta de cpf")]
+        //[MinLength(12)]
+        public double CPF { get; set; }
+        //[Required]
+        //[Range(16,100,ErrorMessage ="voce não tem idade suficiente")]
+        public int IDADE { get; set; }
 
 
 
 
-        [Required]
-        [MinLength(7,ErrorMessage ="erro minimo 7 caracter ")]
-        public  string Senha { get; set; }
+        //[Required(ErrorMessage ="error email obrigatorio")]
+        //[EmailAddress(ErrorMessage ="email invalido")]
+        public string EMAIL { get; set; }
+
+
+
+
+        //[Required]
+        //[MinLength(7,ErrorMessage ="erro minimo 7 caracter ")]
+        public  string SENHA { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ctrgamer._03_entidades;
+using Dapper.Contrib.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Configuration.Internal;
@@ -11,101 +12,49 @@ namespace ctrgamer._02_Repositorio;
 
 public class Jogorepositorio
 {
-    private readonly static string ConnectionString;
+    private readonly  string ConnectionString;
 
     public Jogorepositorio(string connectionString)
     {
-        connectionString = ConnectionString;
+       ConnectionString=connectionString;
         
     }
 
-  
 
 
-    public void Adicionar(Jogos j)
+
+    public void Adicionar(Jogo J)
     {
-        using (var connection = new SQLiteConnection(ConnectionString))
-        {
-            connection.Open();
-            string commandInsert = @" Insert into  JOGO(NOME,DESCRICAO,PRECO,DATA) values(@NOME,@DESCRICAO,@PRECO,@DATA)";
+        using var connection = new SQLiteConnection(ConnectionString);
+        connection.Insert<Jogo>(J);
 
-            using (var command = new SQLiteCommand(commandInsert, connection))
+    }
+    public List<Jogo> listar()
+    {
+        {
+            using var connection = new SQLiteConnection(ConnectionString);
             {
-                command.Parameters.AddWithValue("@NOME", j.Nome);
-                command.Parameters.AddWithValue("@DESCRICAO", j.Descricao);
-                command.Parameters.AddWithValue("@PRECO", j.preco);
-                command.Parameters.AddWithValue("@DATA", j.DataDeLancamento);
-                command.ExecuteNonQuery();
+                List<Jogo> J = connection.GetAll<Jogo>().ToList();
+                return J;
             }
         }
     }
-    public static List<Jogos> listar()
+    public Jogo Buscarporid(int id)
     {
-
-        {
-            List<Jogos> j = new List<Jogos>();
-            using (var connection = new SQLiteConnection(ConnectionString))
-            {
-                connection.Open();
-                var selectcommand = "select id, NOME, DESCRICAO, PRECO, DATA from JOGO";
-                using (var command = new SQLiteCommand(selectcommand, connection))
-                {
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            Jogos o = new Jogos();
-
-                            o.id = int.Parse(reader["ID"].ToString());
-                            o.Nome = reader["NOME"].ToString();
-                            o.Descricao = (reader["descricao"].ToString());
-                            o.preco = double.Parse(reader["preco"].ToString());
-                            o.DataDeLancamento =DateTime.Parse( reader["data"].ToString());                            
-                            j.Add(o);
-
-
-
-                        }
-                    }
-
-                }
-
-                return j;
-            }
-        }
+        using var connection = new SQLiteConnection(ConnectionString);
+        return connection.Get<Jogo>(id);
     }
-
     public void Remover(int id)
     {
-        using (var connection = new SQLiteConnection(ConnectionString))
-        {
-            connection.Open();
-            string deleteCommand = "DELETE FROM JOGO WHERE ID =@ID";
-            using (var command = new SQLiteCommand(deleteCommand, connection))
-            {
-                command.Parameters.AddWithValue("@ID", id);
-                command.ExecuteNonQuery();
-            }
-
-        }
+        using var connection = new SQLiteConnection(ConnectionString);
+        Jogo novoproduto = Buscarporid(id);
+        connection.Delete<Jogo>(novoproduto);
     }
-    public void Editar(int id, Jogos jogos)
+    public void editar(Jogo J)
     {
-        using (var connection = new SQLiteConnection(ConnectionString))
-        {
-            connection.Open();
-            string updatecommand = @"UPDATE JOGO SET NOME=@NOME,DESCRICAO=@DESCRICAO,PRECO=@PRECO,DATA=@DATA WHERE ID=@ID";
-            using (var command = new SQLiteCommand(updatecommand, connection))
-            {
+        using var connection = new SQLiteConnection(ConnectionString);
 
-                command.Parameters.AddWithValue("@ID", id);
-                command.Parameters.AddWithValue("@NOME", jogos.Nome);
-                command.Parameters.AddWithValue("@DESCRICAO", jogos.Descricao);
-                command.Parameters.AddWithValue("@PRECO", jogos.preco);
-                command.Parameters.AddWithValue("@DATA", jogos.DataDeLancamento);
-                command.ExecuteNonQuery();
-            }
-        }
+        connection.Update<Jogo>(J);
     }
-
 }
+

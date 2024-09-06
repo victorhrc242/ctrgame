@@ -36,8 +36,8 @@ public class usuarioController :ControllerBase
         service.Remover(id);
     }
     [HttpPut("editar-aluno")]
-    public void editaraluno(int id, usuario usuario)
+    public void editaraluno( usuario usuario)
     {
-        service.editar(id, usuario);
+        service.editar(usuario);
     }
 }

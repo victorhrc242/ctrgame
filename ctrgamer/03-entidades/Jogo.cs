@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace ctrgamer._03_entidades
 {
-    public class Jogos
+    public class Jogo
     {
 
-        public int id { get; set; }
-        public string Nome { get; set; }
-        public string Descricao { get; set; }
+        public int ID { get; set; }
+        public string NOME { get; set; }
+        public string DESCRICAO { get; set; }
         public double preco { get; set; }
-        public DateTime DataDeLancamento { get; set; }
+        public DateTime DATA { get; set; }
     }
 }

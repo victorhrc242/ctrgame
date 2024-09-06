@@ -17,18 +17,18 @@ public class jogosservice
         repositorio=new Jogorepositorio(connectionString);
     }
 
-    public void Adicionar(Jogos jogos)
+    public void Adicionar(Jogo J)
     {
-        repositorio.Adicionar(jogos);
+        repositorio.Adicionar(J);
     }
 
-    public List<Jogos> Listar()
+    public List<Jogo> Listar()
     {
-        return Jogorepositorio.listar();
+        return repositorio.listar();
     }
-    public void editar(int id, Jogos jogos)
+    public void editar(Jogo J)
     {
-        repositorio.Editar(id, jogos);
+        repositorio.editar(J);
     }
     public void Remover(int id)
     {

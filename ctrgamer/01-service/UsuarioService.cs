@@ -23,11 +23,11 @@ namespace ctrgamer._01_service
 
         public List<usuario> Listar()
         {
-            return UsuarioRepositor.listar();
+           return repositorio.listar();
         }
-        public void editar(int id, usuario usuario)
+        public void editar( usuario usuario)
         {
-            repositorio.Editar(id, usuario);
+            repositorio.editar( usuario);
         }
         public void Remover(int id)
         {

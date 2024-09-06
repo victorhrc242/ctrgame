@@ -20,13 +20,13 @@ public class jogoscontroller : ControllerBase
         }
 
         [HttpPost("adicionar-jogo")]
-        public void adicionaraluno(Jogos u)
+        public void adicionaraluno(Jogo u)
         {
             service.Adicionar(u);
         }
 
         [HttpGet("Listar-jogos")]
-        public List<Jogos> Listaraluno()
+        public List<Jogo> Listaraluno()
         {
 
 
@@ -39,8 +39,8 @@ public class jogoscontroller : ControllerBase
             service.Remover(id);
         }
         [HttpPut("editar-aluno")]
-        public void editaraluno(int id, Jogos jogos)
+        public void editaraluno(Jogo J)
         {
-            service.editar(id, jogos);
+            service.editar(J);
         }
     }

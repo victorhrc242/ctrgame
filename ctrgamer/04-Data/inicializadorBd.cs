@@ -37,7 +37,7 @@ public static class inicializadorBd
         {
             connection.Open();
             string commandoSQL = @" 
-                CREATE TABLE IF NOT EXISTS JOGOs(                
+                CREATE TABLE IF NOT EXISTS JOGOS(                
                 ID INTEGER PRIMARY KEY AUTOINCREMENT,
                 NOME TEXT NOT NULL,
                 DESCRICAO TEXT NOT NULL,
