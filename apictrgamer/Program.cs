@@ -1,3 +1,4 @@
+using apictrgamer;
 using ctrgamer;
 using ctrgamer._04_Data;
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +9,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddAutoMapper(typeof(mappingprofile));
 var app = builder.Build();
 inicializadorBd.iinicializador();
 // Configure the HTTP request pipeline.

@@ -1,5 +1,7 @@
-﻿using ctrgamer._01_service;
+﻿using AutoMapper;
+using ctrgamer._01_service;
 using ctrgamer._03_entidades;
+using ctrgamer._03_entidades.DTO.jogo;
 using Microsoft.AspNetCore.Mvc;
 
 namespace apictrgamer.Controllers;
@@ -12,17 +14,19 @@ public class jogoscontroller : ControllerBase
     
 
       private readonly jogosservice service;
-        public jogoscontroller(IConfiguration configuration)
+    private readonly IMapper mapper;
+        public jogoscontroller(IMapper _mapper, IConfiguration configuration)
         {
         string connectionString = configuration.GetConnectionString("DefaultConnection");
             service = new jogosservice(connectionString);
-
+        _mapper=mapper;
         }
 
         [HttpPost("adicionar-jogo")]
-        public void adicionaraluno(Jogo u)
+        public void adicionaraluno(createjogo j)
         {
-            service.Adicionar(u);
+        Jogo jogo= mapper.Map<Jogo>(j);
+            service.Adicionar(jogo);
         }
 
         [HttpGet("Listar-jogos")]

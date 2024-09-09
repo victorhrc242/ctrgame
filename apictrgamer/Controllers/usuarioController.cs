@@ -1,5 +1,7 @@
-﻿using ctrgamer._01_service;
+﻿using AutoMapper;
+using ctrgamer._01_service;
 using ctrgamer._03_entidades;
+using ctrgamer._03_entidades.DTO.usuario;
 using Microsoft.AspNetCore.Mvc;
 
 namespace apictrgamer.Controllers;
@@ -9,25 +11,25 @@ public class usuarioController :ControllerBase
 {
 
     private readonly  UsuarioService service;
-    public usuarioController(IConfiguration configuration)
+    private readonly IMapper mapper;
+    public usuarioController(IMapper _mapper, IConfiguration configuration)
     {
         string connectionString = configuration.GetConnectionString("DefaultConnection");
         service = new UsuarioService(connectionString);
+        _mapper= mapper;
 
     }
 
     [HttpPost("adicionar-usuario")]
-    public void adicionaraluno(usuario u)
+    public void adicionaraluno(createusuario u)
     {
-        service.Adicionar(u);
+        usuario usuario= mapper.Map<usuario>(u);
+        service.Adicionar(usuario);
     }
 
     [HttpGet("Listar-aluno")]
     public List<usuario> Listaraluno()
     {
-
-
-
         return service.Listar();
     }
     [HttpDelete("Remover-aluno")]
