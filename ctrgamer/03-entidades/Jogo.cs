@@ -14,5 +14,6 @@ namespace ctrgamer._03_entidades
         public string DESCRICAO { get; set; }
         public double preco { get; set; }
         public DateTime DATA { get; set; }
+        
     }
 }
