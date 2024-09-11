@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace apictrgamer.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class avaliacaocontroller:ControllerBase
     {
         private readonly avaliacaosservice service;

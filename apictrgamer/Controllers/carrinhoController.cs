@@ -5,7 +5,8 @@ using ctrgamer._03_entidades.DTO.carrinho;
 using Microsoft.AspNetCore.Mvc;
 
 namespace apictrgamer.Controllers;
-
+[ApiController]
+[Route("[controller]")]
 public class carrinhoController : ControllerBase
 {
     private readonly carrinhoService service;
