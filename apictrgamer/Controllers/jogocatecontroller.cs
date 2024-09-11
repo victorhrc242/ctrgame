@@ -6,32 +6,29 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace apictrgamer.Controllers
 {
-<<<<<<< HEAD
     [ApiController]
     [Route("[controller]")]
-=======
->>>>>>> parent of 0c7e8d7 (Revert "11/09/2024 codigo com erro")
-    public class avaliacaocontroller:ControllerBase
+    public class jogocatecontroller:ControllerBase
     {
-        private readonly avaliacaosservice service;
+        private readonly jogocategoriaservice service;
         private readonly IMapper mapper;
-        public avaliacaocontroller(IMapper _mapper, IConfiguration configuration)
+        public jogocatecontroller(IMapper _mapper, IConfiguration configuration)
         {
             string connectionString = configuration.GetConnectionString("DefaultConnection");
-            service = new avaliacaosservice(connectionString);
+            service = new jogocategoriaservice(connectionString);
             _mapper = mapper;
 
         }
 
         [HttpPost("adicionar-usuario")]
-        public void adicionaraluno(Avaliacao u)
+        public void adicionaraluno(JogoCategoria u)
         {
-            Avaliacao usuario = mapper.Map<Avaliacao>(u);
+            JogoCategoria usuario = mapper.Map<JogoCategoria>(u);
             service.Adicionar(usuario);
         }
 
         [HttpGet("Listar-aluno")]
-        public List<Avaliacao> Listaraluno()
+        public List<JogoCategoria> Listaraluno()
         {
             return service.Listar();
         }
@@ -41,7 +38,7 @@ namespace apictrgamer.Controllers
             service.Remover(id);
         }
         [HttpPut("editar-aluno")]
-        public void editaraluno(Avaliacao usuario)
+        public void editaraluno(JogoCategoria usuario)
         {
             service.editar(usuario);
         }
