@@ -16,14 +16,14 @@ public class usuarioController :ControllerBase
     {
         string connectionString = configuration.GetConnectionString("DefaultConnection");
         service = new UsuarioService(connectionString);
-        _mapper= mapper;
+        mapper = _mapper;
 
     }
 
     [HttpPost("adicionar-usuario")]
     public void adicionaraluno(createusuario u)
     {
-        usuario usuario= mapper.Map<usuario>(u);
+        usuario usuario=mapper.Map<usuario>(u);
         service.Adicionar(usuario);
     }
 

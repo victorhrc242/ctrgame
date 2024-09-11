@@ -16,7 +16,7 @@ namespace ctrgamer._03_entidades
         public int usuarioid { get; set; }
         public int JogoId { get; set; }
         [Required]
-        public string FORMALDEPAGAMENTO { get; set; }
+        public string pagamentoid { get; set; }
 
     }
 }

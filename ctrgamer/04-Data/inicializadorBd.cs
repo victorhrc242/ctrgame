@@ -59,10 +59,11 @@ public static class inicializadorBd
             string commandoSQL = @"
                     CREATE TABLE IF NOT EXISTS carrinhos(
                     ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                    DATA DATETIME NOT NULL,
-                    NOMEJOGO NVARCHAR NULL,
-                    VALORTOTAL DECIMAL NULL,
-                    FORMALDEPAGAMENTO NVARCHAR(50) NOT NULL
+                    jogoid INTEGER,
+                    pagamentoid INTEGER,
+                    usuarioid INTEGER
+
+
                 );";
 
             using (var command = new SQLiteCommand(commandoSQL, connection))
