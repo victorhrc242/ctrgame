@@ -6,11 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace apictrgamer.Controllers
 {
-<<<<<<< HEAD
     [ApiController]
     [Route("[controller]")]
-=======
->>>>>>> parent of 0c7e8d7 (Revert "11/09/2024 codigo com erro")
+
     public class avaliacaocontroller:ControllerBase
     {
         private readonly avaliacaosservice service;
