@@ -27,17 +27,17 @@ public class usuarioController :ControllerBase
         service.Adicionar(usuario);
     }
 
-    [HttpGet("Listar-aluno")]
+    [HttpGet("Listar-usuarios")]
     public List<usuario> Listaraluno()
     {
         return service.Listar();
     }
-    [HttpDelete("Remover-aluno")]
+    [HttpDelete("Remover-usuario")]
     public void Removeralunoaluno(int id)
     {
         service.Remover(id);
     }
-    [HttpPut("editar-aluno")]
+    [HttpPut("editar-usuario")]
     public void editaraluno( usuario usuario)
     {
         service.editar(usuario);

@@ -11,7 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(mappingprofile));
 var app = builder.Build();
-inicializadorBd.iinicializador();
+InicializadorBd.Inicializador();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

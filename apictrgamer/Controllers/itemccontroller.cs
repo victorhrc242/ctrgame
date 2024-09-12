@@ -16,7 +16,7 @@ namespace apictrgamer.Controllers
         {
             string connectionString = configuration.GetConnectionString("DefaultConnection");
             service = new itemcompraservice(connectionString);
-            _mapper = mapper;
+            mapper = _mapper;
 
         }
 

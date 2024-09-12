@@ -19,7 +19,7 @@ public class jogoscontroller : ControllerBase
         {
         string connectionString = configuration.GetConnectionString("DefaultConnection");
             service = new jogosservice(connectionString);
-        _mapper=mapper;
+        mapper = _mapper;
         }
 
         [HttpPost("adicionar-jogo")]
@@ -42,7 +42,7 @@ public class jogoscontroller : ControllerBase
         {
             service.Remover(id);
         }
-        [HttpPut("editar-aluno")]
+        [HttpPut("editar-jogo")]
         public void editaraluno(Jogo J)
         {
             service.editar(J);

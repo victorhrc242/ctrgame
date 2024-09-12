@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dapper.Contrib.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace ctrgamer._03_entidades
 {
     public class Avaliacao
     {
+       public int id { get; set; }
         public int Avaliacaoid { get; set; }
         public int jogoid { get; set; }
         public int usuarioid { get; set; }

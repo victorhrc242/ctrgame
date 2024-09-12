@@ -16,28 +16,28 @@ namespace apictrgamer.Controllers
         {
             string connectionString = configuration.GetConnectionString("DefaultConnection");
             service = new reevedendorservice_(connectionString);
-            _mapper = mapper;
+            mapper= _mapper;
 
         }
 
-        [HttpPost("adicionar-usuario")]
+        [HttpPost("adicionar-Revenddedor")]
         public void adicionaraluno(Reevendedor u)
         {
             Reevendedor usuario = mapper.Map<Reevendedor>(u);
             service.Adicionar(usuario);
         }
 
-        [HttpGet("Listar-aluno")]
+        [HttpGet("Listar-Revendedores")]
         public List<Reevendedor> Listaraluno()
         {
             return service.Listar();
         }
-        [HttpDelete("Remover-aluno")]
+        [HttpDelete("Remover-Revendedor")]
         public void Removeralunoaluno(int id)
         {
             service.Remover(id);
         }
-        [HttpPut("editar-aluno")]
+        [HttpPut("editar-Revendedor")]
         public void editaraluno(Reevendedor usuario)
         {
             service.editar(usuario);

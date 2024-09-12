@@ -33,8 +33,8 @@ namespace ctrgamer._02_Repositorio
             {
                 using var connection = new SQLiteConnection(ConnectionString);
                 {
-                    List<Avaliacao> u = connection.GetAll<Avaliacao>().ToList();
-                    return u;
+                    List<Avaliacao> c = connection.GetAll<Avaliacao>().ToList();
+                    return c;
                 }
             }
         }

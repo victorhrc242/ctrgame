@@ -8,6 +8,7 @@ namespace ctrgamer._03_entidades
 {
     public class Reevendedor
     {
+        public int id { get; set; }
         public int RevendedorId { get; set; }
         public string Nome { get; set; }
         public string Endereco { get; set; }

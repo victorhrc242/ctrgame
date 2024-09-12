@@ -1,77 +1,157 @@
-﻿using ctrgamer._03_entidades;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ctrgamer._04_Data;
-
-public static class inicializadorBd
+namespace ctrgamer._04_Data
 {
-    private const string ConnectioString = "Data Source=Ctrgame.db";
-    public static void iinicializador()
+    public static class InicializadorBd
     {
-        using (var connection = new SQLiteConnection(ConnectioString))
+        private const string ConnectionString = "Data Source=Ctrgame.db";
+
+        public static void Inicializador()
         {
-            connection.Open();
-            string commandoSQL = @" 
-                CREATE TABLE IF NOT EXISTS usuarios(                
-                ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                NOME TEXT NOT NULL,
-                EMAIL TEXT NOT NULL,
-                SENHA TEXT NOT NULL,
-                CPF DECIMAL NOT NULL,
-                IDADE INTEGER NOT NULL
-          
-            );";
-            using (var command = new SQLiteCommand(commandoSQL, connection))
+            using (var connection = new SQLiteConnection(ConnectionString))
             {
-                command.ExecuteNonQuery();
+                connection.Open();
+                string commandoSQL = @"
+                    CREATE TABLE IF NOT EXISTS usuarios (
+                        ID INTEGER PRIMARY KEY AUTOINCREMENT,
+                        NOME TEXT NOT NULL,
+                        EMAIL TEXT NOT NULL,
+                        SENHA TEXT NOT NULL,
+                        CPF TEXT NOT NULL,
+                        IDADE INTEGER NOT NULL
+                    );";
+
+                using (var command = new SQLiteCommand(commandoSQL, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+                commandoSQL = @"
+                    CREATE TABLE IF NOT EXISTS JOGOS (
+                        ID INTEGER PRIMARY KEY AUTOINCREMENT,
+                        NOME TEXT NOT NULL,
+                        DESCRICAO TEXT NOT NULL,
+                        PRECO REAL NOT NULL,
+                        DATA DATETIME NOT NULL
+                    );";
+
+                using (var command = new SQLiteCommand(commandoSQL, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+                commandoSQL = @"
+                    CREATE TABLE IF NOT EXISTS carrinhos (
+                        ID INTEGER PRIMARY KEY AUTOINCREMENT,
+                        jogoid INTEGER,
+                        pagamentoid INTEGER,
+                        usuarioid INTEGER
+                    );";
+
+                using (var command = new SQLiteCommand(commandoSQL, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+                commandoSQL = @"
+                    CREATE TABLE IF NOT EXISTS Categorias (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        Categoriaid INTEGER ,
+                        Nome TEXT,
+                        Descricao TEXT,
+                        jogos TEXT
+                    );";
+
+                using (var command = new SQLiteCommand(commandoSQL, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+                commandoSQL = @"
+                    CREATE TABLE IF NOT EXISTS Compras (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        Compraid INTEGER ,
+                        usuarioid INTEGER,
+                        Datacompra DATETIME NOT NULL,
+                        total REAL NOT NULL,
+                        itens TEXT
+                    );";
+
+                using (var command = new SQLiteCommand(commandoSQL, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+                commandoSQL = @"
+                    CREATE TABLE IF NOT EXISTS itemCompras (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        itemcompraid INTEGER ,
+                        Compraid INTEGER,
+                        jogoid INTEGER,
+                        quantidade INTEGER NOT NULL,
+                        precounutario DECIMAL NOT NULL,
+                        totalitem REAL NOT NULL
+                    );";
+
+                using (var command = new SQLiteCommand(commandoSQL, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+                commandoSQL = @"
+                    CREATE TABLE IF NOT EXISTS jogoCategorias (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        jogoid INTEGER,
+                        categoriaid INTEGER
+                    );";
+
+                using (var command = new SQLiteCommand(commandoSQL, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+                commandoSQL = @"
+                    CREATE TABLE IF NOT EXISTS Pagamentos (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        PagamentoId INTEGER,
+                        Compraid INTEGER,
+                        TipoPagamento TEXT,
+                        status TEXT
+                    );";
+
+                using (var command = new SQLiteCommand(commandoSQL, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+                commandoSQL = @"
+                    CREATE TABLE IF NOT EXISTS Reevendedors (
+id INTEGER PRIMARY KEY AUTOINCREMENT,                        
+RevendedorId INTEGER ,
+                        Nome TEXT,
+                        Endereco TEXT,
+                        Telefone TEXT,
+                        Email TEXT
+                    );";
+
+                using (var command = new SQLiteCommand(commandoSQL, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+                using (var command = new SQLiteCommand(commandoSQL, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+                commandoSQL = @"
+                    CREATE TABLE IF NOT EXISTS Avaliacaos (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+                      Avaliacaoid INTEGER ,
+                     jogoid INTEGER,
+                     usuarioid INTEGER,
+                     nota DECIMAL,
+                     Comentario TEXT
+                    );";
+
+                using (var command = new SQLiteCommand(commandoSQL, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
             }
 
-
         }
-        using (var connection = new SQLiteConnection(ConnectioString))
-        {
-            connection.Open();
-            string commandoSQL = @" 
-                CREATE TABLE IF NOT EXISTS JOGOS(                
-                ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                NOME TEXT NOT NULL,
-                DESCRICAO TEXT NOT NULL,
-                PRECO REAL NOT NULL,
-                DATA DATETIME NOT NULL
-          
-            );";
-
-            using (var command = new SQLiteCommand(commandoSQL, connection))
-            {
-                command.ExecuteNonQuery();
-            }
-
-
-        }
-        using (var connection = new SQLiteConnection(ConnectioString))
-        {
-            connection.Open();
-            string commandoSQL = @"
-                    CREATE TABLE IF NOT EXISTS carrinhos(
-                    ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                    jogoid INTEGER,
-                    pagamentoid INTEGER,
-                    usuarioid INTEGER
-
-
-                );";
-
-            using (var command = new SQLiteCommand(commandoSQL, connection))
-            {
-                command.ExecuteNonQuery();
-            }
-
-        }
-
     }
 }

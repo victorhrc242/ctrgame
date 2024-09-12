@@ -16,28 +16,28 @@ namespace apictrgamer.Controllers
         {
             string connectionString = configuration.GetConnectionString("DefaultConnection");
             service = new pagamentoservice(connectionString);
-            _mapper = mapper;
+            mapper= _mapper;
 
         }
 
-        [HttpPost("adicionar-usuario")]
+        [HttpPost("adicionar-Pagamento")]
         public void adicionaraluno(Pagamento u)
         {
             Pagamento usuario = mapper.Map<Pagamento>(u);
             service.Adicionar(usuario);
         }
 
-        [HttpGet("Listar-aluno")]
+        [HttpGet("Listar-Pagamento")]
         public List<Pagamento> Listaraluno()
         {
             return service.Listar();
         }
-        [HttpDelete("Remover-aluno")]
+        [HttpDelete("Remover-Pagamento")]
         public void Removeralunoaluno(int id)
         {
             service.Remover(id);
         }
-        [HttpPut("editar-aluno")]
+        [HttpPut("editar-Pagamento")]
         public void editaraluno(Pagamento usuario)
         {
             service.editar(usuario);

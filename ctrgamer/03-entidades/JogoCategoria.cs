@@ -8,6 +8,7 @@ namespace ctrgamer._03_entidades
 {
     public class JogoCategoria
     {
+        public int id { get; set; }
         public int jogoid { get; set; }
         public int categoriaid { get; set; }
     }

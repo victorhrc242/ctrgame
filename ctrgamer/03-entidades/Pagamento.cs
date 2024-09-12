@@ -8,6 +8,7 @@ namespace ctrgamer._03_entidades
 {
     public class Pagamento
     {
+        public int ID { get; set; }
         public int Compraid { get; set; }
         public string TipoPagamento { get; set; }
         public string status { get; set; }

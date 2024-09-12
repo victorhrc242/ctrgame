@@ -17,7 +17,7 @@ public class categoriacontroller:ControllerBase
     {
         string connectionString = configuration.GetConnectionString("DefaultConnection");
         service = new categoriaservice(connectionString);
-        _mapper = mapper;
+        mapper = _mapper;
 
     }
 
