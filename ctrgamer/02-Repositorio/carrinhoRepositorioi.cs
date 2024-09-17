@@ -1,8 +1,11 @@
-﻿using ctrgamer._03_entidades;
+﻿using AutoMapper;
+using ctrgamer._03_entidades;
+using ctrgamer._03_entidades.DTO.carrinho;
 using Dapper;
 using Dapper.Contrib.Extensions;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
@@ -13,10 +16,18 @@ namespace ctrgamer._02_Repositorio
     public class carrinhoRepositorioi
     {
         private  readonly  string ConnectionString;
-        public  carrinhoRepositorioi ( string  connectionString)
+        private readonly IMapper _mapper;
+        private readonly jogocategoriarepositor _reposytoryjogo;
+        private readonly UsuarioRepositor _repositoryusuario;
+        private readonly pagamentorepositor _pagamentorepository;
+        public  carrinhoRepositorioi ( string  connectionString,IMapper mapper)
         {
 
             ConnectionString = connectionString;
+            _mapper= mapper;
+           _reposytoryjogo = new jogocategoriarepositor(connectionString);
+            _repositoryusuario = new UsuarioRepositor(connectionString);
+            _reposytoryjogo = new jogocategoriarepositor(connectionString);
 
         }
 
@@ -35,6 +46,18 @@ namespace ctrgamer._02_Repositorio
                 using var connection = new SQLiteConnection(ConnectionString);
                 {
                     List<Carrinho> c = connection.GetAll<Carrinho>().ToList();
+                    List<Reeadcarrinho> carrinhodto = new List<Reeadcarrinho>();
+                    foreach (Carrinho r in c)
+                    {
+                        Reeadcarrinho carrinhodto = new Reeadcarrinho();
+                        carrinhodto.ID = r.ID;
+                        carrinhodto. = r.DiaId;
+                        rotinaDTO.Dia = _repositoryDia.BuscarPorID(r.DiaId);
+                        rotinaDTO.PessoaId = r.PessoaId;
+                        rotinaDTO.Pessoa = _repositoryPessoa.BuscarPorId(r.PessoaId);
+                        rotinaDTO.Atividade = _repositoryAtividade.BuscarPorId(r.AtividadeId);
+                        rotinasDTO.Add(rotinaDTO);
+                    }
                     return c;
                 }
             }

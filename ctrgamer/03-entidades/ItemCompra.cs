@@ -9,7 +9,6 @@ namespace ctrgamer._03_entidades
     public class ItemCompra
     {
         public int id { get; set; }
-        public int itemcompraid { get; set; }
         public int Compraid { get; set; }
         public int jogoid { get; set; }
         public int quantidade { get; set; }

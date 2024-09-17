@@ -12,7 +12,7 @@ namespace apictrgamer
         {
             CreateMap<createusuario, usuario>().ReverseMap();
             CreateMap<createjogo, Jogo>().ReverseMap();
-            CreateMap<Createcarrinho, Carrinho>().ReverseMap();
+            CreateMap<Reeadcarrinho, Carrinho>().ReverseMap();
         }
     }
 }

@@ -10,7 +10,6 @@ namespace ctrgamer._03_entidades
     public class Avaliacao
     {
        public int id { get; set; }
-        public int Avaliacaoid { get; set; }
         public int jogoid { get; set; }
         public int usuarioid { get; set; }
         public int nota { get; set; }

@@ -21,7 +21,7 @@ namespace apictrgamer.Controllers
         }
 
         [HttpPost("adicionar-carrinho")]
-        public void adicionaraluno(Createcarrinho c)
+        public void adicionaraluno(Reeadcarrinho c)
         {
             Carrinho carrinho = mapper.Map<Carrinho>(c);
             service.Adicionar(carrinho);

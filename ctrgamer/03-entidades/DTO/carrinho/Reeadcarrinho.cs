@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace ctrgamer._03_entidades.DTO.carrinho;
 
-public class Createcarrinho
+public class Reeadcarrinho
 {
-
-    public int usuarioid { get; set; }
-    public int JogoId { get; set; }
-    [Required]
-    public string FORMALDEPAGAMENTO { get; set; }
+    public int ID { get; set; }
+public us
+public Jogo jogo { get; set; }
+public Pagamento pagamento { get; set; }
 
 }

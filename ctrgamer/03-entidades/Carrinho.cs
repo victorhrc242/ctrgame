@@ -15,8 +15,7 @@ namespace ctrgamer._03_entidades
         public int ID { get; set; }
         public int usuarioid { get; set; }
         public int JogoId { get; set; }
-        [Required]
-        public string pagamentoid { get; set; }
+        public int  pagamentoid { get; set; }
 
     }
 }

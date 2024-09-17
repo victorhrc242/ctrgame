@@ -55,7 +55,6 @@ namespace ctrgamer._04_Data
                 commandoSQL = @"
                     CREATE TABLE IF NOT EXISTS Categorias (
                         id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        Categoriaid INTEGER ,
                         Nome TEXT,
                         Descricao TEXT,
                         jogos TEXT
@@ -68,7 +67,6 @@ namespace ctrgamer._04_Data
                 commandoSQL = @"
                     CREATE TABLE IF NOT EXISTS Compras (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        Compraid INTEGER ,
                         usuarioid INTEGER,
                         Datacompra DATETIME NOT NULL,
                         total REAL NOT NULL,
@@ -82,7 +80,6 @@ id INTEGER PRIMARY KEY AUTOINCREMENT,
                 commandoSQL = @"
                     CREATE TABLE IF NOT EXISTS itemCompras (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        itemcompraid INTEGER ,
                         Compraid INTEGER,
                         jogoid INTEGER,
                         quantidade INTEGER NOT NULL,
@@ -108,7 +105,6 @@ id INTEGER PRIMARY KEY AUTOINCREMENT,
                 commandoSQL = @"
                     CREATE TABLE IF NOT EXISTS Pagamentos (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        PagamentoId INTEGER,
                         Compraid INTEGER,
                         TipoPagamento TEXT,
                         status TEXT
@@ -121,7 +117,6 @@ id INTEGER PRIMARY KEY AUTOINCREMENT,
                 commandoSQL = @"
                     CREATE TABLE IF NOT EXISTS Reevendedors (
 id INTEGER PRIMARY KEY AUTOINCREMENT,                        
-RevendedorId INTEGER ,
                         Nome TEXT,
                         Endereco TEXT,
                         Telefone TEXT,
@@ -139,7 +134,6 @@ RevendedorId INTEGER ,
                 commandoSQL = @"
                     CREATE TABLE IF NOT EXISTS Avaliacaos (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                      Avaliacaoid INTEGER ,
                      jogoid INTEGER,
                      usuarioid INTEGER,
                      nota DECIMAL,
