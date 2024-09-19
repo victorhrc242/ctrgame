@@ -50,8 +50,8 @@ namespace ctrgamer._02_Repositorio
                     foreach (Carrinho r in c)
                     {
                         Reeadcarrinho carrinhodto = new Reeadcarrinho();
-                        carrinhodto.ID = r.ID;
-                        carrinhodto. = r.DiaId;
+                        carrinhodtos.usuario = r.usuarioid;
+                        carrinhodtos.usuario = r.usuarioid;
                         rotinaDTO.Dia = _repositoryDia.BuscarPorID(r.DiaId);
                         rotinaDTO.PessoaId = r.PessoaId;
                         rotinaDTO.Pessoa = _repositoryPessoa.BuscarPorId(r.PessoaId);
