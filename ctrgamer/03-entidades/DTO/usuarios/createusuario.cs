@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ctrgamer._03_entidades.DTO.usuario;
+namespace ctrgamer._03_entidades.DTO.usuarioSS;
 
 public class createusuario
 {

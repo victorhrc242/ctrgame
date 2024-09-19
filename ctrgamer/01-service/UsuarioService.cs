@@ -16,16 +16,16 @@ namespace ctrgamer._01_service
         {
             repositorio=new UsuarioRepositor(connectionString);
         }
-            public void Adicionar(usuario usuario)
+            public void Adicionar(usuarioS usuario)
             {
                 repositorio.Adicionar(usuario);
             }
 
-        public List<usuario> Listar()
+        public List<usuarioS> Listar()
         {
            return repositorio.listar();
         }
-        public void editar( usuario usuario)
+        public void editar( usuarioS usuario)
         {
             repositorio.editar( usuario);
         }

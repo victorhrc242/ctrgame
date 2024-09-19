@@ -16,7 +16,7 @@ namespace apictrgamer.Controllers
         public carrinhoController(IMapper _mapper, IConfiguration configuration)
         {
             string connectionString = configuration.GetConnectionString("DefaultConnection");
-            service = new carrinhoService(connectionString);
+            service = new carrinhoService(connectionString,mapper);
             mapper = _mapper; // Corrigido para atribuir o parâmetro à variável de instância
         }
 
@@ -28,7 +28,7 @@ namespace apictrgamer.Controllers
         }
 
         [HttpGet("Listar-compras")]
-        public List<Carrinho> listar()
+        public List<Reeadcarrinho> listar()
         {
             return service.Listar();
         }

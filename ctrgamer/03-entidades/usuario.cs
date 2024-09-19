@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ctrgamer._03_entidades
 {
-    public class usuario
+    public class usuarioS
     {
         public int ID { get; set; }
         //[Required]

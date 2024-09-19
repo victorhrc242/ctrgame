@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using ctrgamer._01_service;
 using ctrgamer._03_entidades;
-using ctrgamer._03_entidades.DTO.usuario;
+using ctrgamer._03_entidades.DTO;
+using ctrgamer._03_entidades.DTO;
+using ctrgamer._03_entidades.DTO.usuarioSS;
 using Microsoft.AspNetCore.Mvc;
 
 namespace apictrgamer.Controllers;
@@ -23,12 +25,12 @@ public class usuarioController :ControllerBase
     [HttpPost("adicionar-usuario")]
     public void adicionaraluno(createusuario u)
     {
-        usuario usuario=mapper.Map<usuario>(u);
+        usuarioS usuario=mapper.Map<usuarioS>(u);
         service.Adicionar(usuario);
     }
 
     [HttpGet("Listar-usuarios")]
-    public List<usuario> Listaraluno()
+    public List<usuarioS> Listaraluno()
     {
         return service.Listar();
     }
@@ -38,7 +40,7 @@ public class usuarioController :ControllerBase
         service.Remover(id);
     }
     [HttpPut("editar-usuario")]
-    public void editaraluno( usuario usuario)
+    public void editaraluno( usuarioS usuario)
     {
         service.editar(usuario);
     }

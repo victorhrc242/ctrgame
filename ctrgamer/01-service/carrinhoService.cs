@@ -1,5 +1,7 @@
-﻿using ctrgamer._02_Repositorio;
+﻿using AutoMapper;
+using ctrgamer._02_Repositorio;
 using ctrgamer._03_entidades;
+using ctrgamer._03_entidades.DTO.carrinho;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,16 +17,16 @@ public class carrinhoService
    
 
         carrinhoRepositorioi repositorio { get; set; }
-    public carrinhoService(string connectionString)
+    public carrinhoService(string connectionString,IMapper MAPPER)
     {
-        repositorio = new carrinhoRepositorioi(connectionString);
+        repositorio = new carrinhoRepositorioi(connectionString,MAPPER);
     }
         public void Adicionar(Carrinho carrinho)
         {
             repositorio.Adicionar(carrinho);
         }
 
-    public List<Carrinho> Listar()
+    public List<Reeadcarrinho> Listar()
     {
         return repositorio.listar();
     }

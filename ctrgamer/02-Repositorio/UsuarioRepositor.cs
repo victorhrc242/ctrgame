@@ -22,38 +22,38 @@ public class UsuarioRepositor
 
 
 
-    public void Adicionar(usuario u)
+    public void Adicionar(usuarioS u)
     {
         using var connection = new SQLiteConnection(ConnectionString);
-        connection.Insert<usuario>(u);
+        connection.Insert<usuarioS>(u);
 
     }
-    public List<usuario> listar()
+    public List<usuarioS> listar()
     {
         {
             using var connection = new SQLiteConnection(ConnectionString);
             {
-                List<usuario> u = connection.GetAll<usuario>().ToList();
+                List<usuarioS> u = connection.GetAll<usuarioS>().ToList();
                 return u;
             }
         }
     }
-    public usuario Buscarporid(int id)
+    public usuarioS Buscarporid(int id)
     {
         using var connection = new SQLiteConnection(ConnectionString);
-        return connection.Get<usuario>(id);
+        return connection.Get<usuarioS>(id);
     }
     public void Remover(int id)
     {
         using var connection = new SQLiteConnection(ConnectionString);
-        usuario novoproduto = Buscarporid(id);
-        connection.Delete<usuario>(novoproduto);
+        usuarioS novoproduto = Buscarporid(id);
+        connection.Delete<usuarioS>(novoproduto);
     }
-    public void editar(usuario u)
+    public void editar(usuarioS u)
     {
         using var connection = new SQLiteConnection(ConnectionString);
 
-        connection.Update<usuario>(u);
+        connection.Update<usuarioS>(u);
     }
 }
 

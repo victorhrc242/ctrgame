@@ -14,7 +14,7 @@ namespace ctrgamer._04_Data
             {
                 connection.Open();
                 string commandoSQL = @"
-                    CREATE TABLE IF NOT EXISTS usuarios (
+                    CREATE TABLE IF NOT EXISTS usuarioSs (
                         ID INTEGER PRIMARY KEY AUTOINCREMENT,
                         NOME TEXT NOT NULL,
                         EMAIL TEXT NOT NULL,
