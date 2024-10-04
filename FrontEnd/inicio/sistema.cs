@@ -18,6 +18,7 @@ namespace FrontEnd.inicio
         public sistema(HttpClient cliente)
         {
                 _UsuarioUC=new UsuarioUC(cliente);
+            _JogoUC = new JogoUC(cliente);
         }
         //iniciar sistema//
         public void iniciarsistema()
@@ -40,6 +41,10 @@ namespace FrontEnd.inicio
                         _UsuarioUC.Cadastrarusuario(usuario);
                         Console.WriteLine("Usuário cadastrado com sucesso");
                     }
+                    else
+                    {
+                        Console.WriteLine("opção invalida");
+                    }
              
                 }
             }
@@ -55,15 +60,23 @@ namespace FrontEnd.inicio
             return int.Parse( Console.ReadLine() );
         }
 
-        public int exibirmenuprincipal(Usuariologindto usu)
+        public void exibirmenuprincipal(Usuariologindto usu)
         {
-            Console.WriteLine($"--------Ben vindo {usu.Username}----------\n" +
+            Console.WriteLine($"--------Bem vindo {usu.Username}----------\n" +
                 $"1-Listar jogos\n" +
                 $"2-Comprar jogos\n" +
                 $"3-Carrinho\n" +
                 $"4-Adicionar jogos\n" +
                 $"5Meus jogos\n");
-            return int.Parse(Console.ReadLine());
+            
+             int  resposta= int.Parse(Console.ReadLine());
+
+            if (resposta == 1)
+            {
+                ListarProdutos();
+            }
+
+           
         }
 
         //opçoes//

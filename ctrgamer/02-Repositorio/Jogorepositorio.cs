@@ -31,13 +31,10 @@ public class Jogorepositorio
     }
     public List<Jogo> listar()
     {
-        {
+        
             using var connection = new SQLiteConnection(ConnectionString);
-            {
-                List<Jogo> J = connection.GetAll<Jogo>().ToList();
-                return J;
-            }
-        }
+            return connection.GetAll<Jogo>().ToList();
+        
     }
     public Jogo Buscarporid(int id)
     {
