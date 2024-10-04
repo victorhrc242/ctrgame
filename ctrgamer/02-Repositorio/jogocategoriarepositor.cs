@@ -18,10 +18,6 @@ namespace ctrgamer._02_Repositorio
             ConnectionString = connectionString;
 
         }
-
-
-
-
         public void Adicionar(JogoCategoria u)
         {
             using var connection = new SQLiteConnection(ConnectionString);

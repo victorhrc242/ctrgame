@@ -17,24 +17,16 @@ public class Jogorepositorio
     public Jogorepositorio(string connectionString)
     {
        ConnectionString=connectionString;
-        
     }
-
-
-
-
     public void Adicionar(Jogo J)
     {
         using var connection = new SQLiteConnection(ConnectionString);
         connection.Insert<Jogo>(J);
-
     }
     public List<Jogo> listar()
     {
-        
             using var connection = new SQLiteConnection(ConnectionString);
             return connection.GetAll<Jogo>().ToList();
-        
     }
     public Jogo Buscarporid(int id)
     {
@@ -50,7 +42,6 @@ public class Jogorepositorio
     public void editar(Jogo J)
     {
         using var connection = new SQLiteConnection(ConnectionString);
-
         connection.Update<Jogo>(J);
     }
 }
