@@ -3,7 +3,7 @@ using ctrgamer._01_service;
 using ctrgamer._03_entidades;
 using ctrgamer._03_entidades.DTO;
 using ctrgamer._03_entidades.DTO;
-using ctrgamer._03_entidades.DTO.usuarioSS;
+using FrontEnd.DTOS;
 using Microsoft.AspNetCore.Mvc;
 
 namespace apictrgamer.Controllers;
@@ -12,36 +12,41 @@ namespace apictrgamer.Controllers;
 public class usuarioController :ControllerBase
 {
 
-    private readonly  UsuarioService service;
+    private readonly  UsuarioService _service;
     private readonly IMapper mapper;
     public usuarioController(IMapper _mapper, IConfiguration configuration)
     {
         string connectionString = configuration.GetConnectionString("DefaultConnection");
-        service = new UsuarioService(connectionString);
+        _service = new UsuarioService(connectionString);
         mapper = _mapper;
 
     }
 
     [HttpPost("adicionar-usuario")]
-    public void adicionaraluno(createusuario u)
+    public void adicionaraluno(usuarioS u)
     {
         usuarioS usuario=mapper.Map<usuarioS>(u);
-        service.Adicionar(usuario);
+        _service.Adicionar(usuario);
     }
-
+    [HttpPost("fazer-login")]
+    public usuarioS FazerLogin(Usuariologindto usuarioLogin)
+    {
+        usuarioS usuario =  _service.FazerLogin(usuarioLogin);
+        return usuario;
+    }
     [HttpGet("Listar-usuarios")]
     public List<usuarioS> Listaraluno()
     {
-        return service.Listar();
+        return _service.Listar();
     }
     [HttpDelete("Remover-usuario")]
     public void Removeralunoaluno(int id)
     {
-        service.Remover(id);
+        _service.Remover(id);
     }
     [HttpPut("editar-usuario")]
     public void editaraluno( usuarioS usuario)
     {
-        service.editar(usuario);
+        _service.editar(usuario);
     }
 }

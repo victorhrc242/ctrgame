@@ -5,7 +5,9 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ctrgamer", "ctrgamer\ctrgamer.csproj", "{D9D5A8D9-2D67-444B-A870-0C0811365169}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "apictrgamer", "apictrgamer\apictrgamer.csproj", "{9F10E772-9DDD-45E5-9C0C-3A93685383F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "apictrgamer", "apictrgamer\apictrgamer.csproj", "{9F10E772-9DDD-45E5-9C0C-3A93685383F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd", "FrontEnd\FrontEnd.csproj", "{C07814DA-EEE3-427D-A334-B1E419408A15}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{9F10E772-9DDD-45E5-9C0C-3A93685383F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F10E772-9DDD-45E5-9C0C-3A93685383F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F10E772-9DDD-45E5-9C0C-3A93685383F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C07814DA-EEE3-427D-A334-B1E419408A15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C07814DA-EEE3-427D-A334-B1E419408A15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C07814DA-EEE3-427D-A334-B1E419408A15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C07814DA-EEE3-427D-A334-B1E419408A15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

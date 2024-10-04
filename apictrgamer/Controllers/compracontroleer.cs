@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using ctrgamer._01_service;
-using ctrgamer._03_entidades.DTO.usuarioSS;
 using ctrgamer._03_entidades;
 using Microsoft.AspNetCore.Mvc;
 

@@ -17,6 +17,7 @@ namespace ctrgamer._04_Data
                     CREATE TABLE IF NOT EXISTS usuarioSs (
                         ID INTEGER PRIMARY KEY AUTOINCREMENT,
                         NOME TEXT NOT NULL,
+                        Username TEXT NOT NULL,
                         EMAIL TEXT NOT NULL,
                         SENHA TEXT NOT NULL,
                         CPF TEXT NOT NULL,

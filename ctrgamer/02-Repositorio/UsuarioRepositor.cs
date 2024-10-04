@@ -55,6 +55,8 @@ public class UsuarioRepositor
 
         connection.Update<usuarioS>(u);
     }
+
+
 }
 
 

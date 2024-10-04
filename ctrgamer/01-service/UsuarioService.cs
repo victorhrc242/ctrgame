@@ -1,5 +1,6 @@
 ﻿using ctrgamer._02_Repositorio;
 using ctrgamer._03_entidades;
+using FrontEnd.DTOS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +35,19 @@ namespace ctrgamer._01_service
 
             repositorio.Remover(id);
         }
-
+        public usuarioS FazerLogin(Usuariologindto usuarioLogin)
+        {
+            List<usuarioS> listUsuario = Listar();
+            foreach (usuarioS usuario in listUsuario)
+            {
+                if (usuario.Username == usuarioLogin.Username
+                    && usuario.SENHA == usuarioLogin.SENHA)
+                {
+                    return usuario;
+                }
+            }
+            return null;
+        }
 
     }
 }
