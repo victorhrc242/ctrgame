@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using ctrgamer._01_service;
 using ctrgamer._03_entidades;
-using ctrgamer._03_entidades.DTO.jogo;
 using Microsoft.AspNetCore.Mvc;
 
 namespace apictrgamer.Controllers;
@@ -23,7 +22,7 @@ public class jogoscontroller : ControllerBase
         }
 
         [HttpPost("adicionar-jogo")]
-        public void adicionaraluno(createjogo j)
+        public void adicionaraluno(Jogo j)
         {
         Jogo jogo= mapper.Map<Jogo>(j);
             service.Adicionar(jogo);

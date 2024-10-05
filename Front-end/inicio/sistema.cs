@@ -63,8 +63,8 @@ namespace FrontEnd.inicio
                 $"1-Listar jogos\n" +
                 $"2-Comprar jogos\n" +
                 $"3-Carrinho\n" +
-                $"4-Adicionar jogos\n" +
-                $"5Meus jogos\n");
+                $"4-Meus jogos\n" +
+                $"5-Perfil");
             int resposta = -1;
                 resposta = int.Parse(Console.ReadLine());
             if (resposta == 1)

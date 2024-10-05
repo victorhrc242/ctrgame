@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ctrgamer._01_service;
 using ctrgamer._03_entidades;
+using ctrgamer._03_entidades.DTO.Compra;
 using Microsoft.AspNetCore.Mvc;
 
 namespace apictrgamer.Controllers
@@ -30,6 +31,12 @@ namespace apictrgamer.Controllers
         public List<Compra> Listaraluno()
         {
             return service.Listar();
+        }
+
+        [HttpGet("Listar-compra")]
+        public List<ReadCompraDTO> Listaraluno(int usuarioid)
+        {
+            return service.listarcompradto(usuarioid);
         }
         [HttpDelete("Remover-aluno")]
         public void Removeralunoaluno(int id)

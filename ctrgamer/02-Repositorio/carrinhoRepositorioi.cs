@@ -19,15 +19,12 @@ namespace ctrgamer._02_Repositorio
         private readonly IMapper _mapper;
         private readonly Jogorepositorio _reposytoryjogo;
         private readonly UsuarioRepositor _repositoryusuario;
-        private readonly pagamentorepositor _pagamentorepository;
-        public  carrinhoRepositorioi ( string  connectionString,IMapper mapper)
+        public  carrinhoRepositorioi ( string  connectionString)
         {
 
             ConnectionString = connectionString;
-            _mapper= mapper;
            _reposytoryjogo = new Jogorepositorio(connectionString);
             _repositoryusuario = new UsuarioRepositor(connectionString);
-           _pagamentorepository=new pagamentorepositor(connectionString);
 
         }
         public void Adicionar(Carrinho carrinho)
@@ -52,7 +49,6 @@ namespace ctrgamer._02_Repositorio
                 Reeadcarrinho readCarrinho = new Reeadcarrinho();
                 readCarrinho.usuario = _repositoryusuario.Buscarporid(car.usuarioid);
                 readCarrinho.jogo = _reposytoryjogo.Buscarporid(car.JogoId);
-                readCarrinho.pagamento = _pagamentorepository.Buscarporid(car.pagamentoid);
                 listDTO.Add(readCarrinho);
             }
             return listDTO;

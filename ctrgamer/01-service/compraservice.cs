@@ -1,5 +1,6 @@
 ﻿using ctrgamer._02_Repositorio;
 using ctrgamer._03_entidades;
+using ctrgamer._03_entidades.DTO.Compra;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,11 @@ namespace ctrgamer._01_service
 
         public List<Compra> Listar()
         {
-            return repositorio.listar();
+            return repositorio.Listar();
+        }
+        public List<ReadCompraDTO> listarcompradto(int usuarioid)
+        {
+            return repositorio.ListarCarrinhoDoUsuario(usuarioid);
         }
         public void editar(Compra c)
         {

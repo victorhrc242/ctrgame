@@ -12,6 +12,4 @@ public class Reeadcarrinho
 public int ID { get; set; }
 public usuarioS usuario { get; set; }
 public Jogo jogo { get; set; }
-public Pagamento pagamento { get; set; }
-
 }

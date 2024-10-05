@@ -19,7 +19,7 @@ public class carrinhoService
         carrinhoRepositorioi repositorio { get; set; }
     public carrinhoService(string connectionString,IMapper MAPPER)
     {
-        repositorio = new carrinhoRepositorioi(connectionString,MAPPER);
+        repositorio = new carrinhoRepositorioi(connectionString);
     }
         public void Adicionar(Carrinho carrinho)
         {
