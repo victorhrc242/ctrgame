@@ -21,16 +21,21 @@ namespace apictrgamer.Controllers
         }
 
         [HttpPost("adicionar-carrinho")]
-        public void adicionaraluno(Reeadcarrinho c)
+        public void AdicionarAluno(Carrinho carrinhoDTO)
         {
-            Carrinho carrinho = mapper.Map<Carrinho>(c);
+            Carrinho carrinho = mapper.Map<Carrinho>(carrinhoDTO);
             service.Adicionar(carrinho);
         }
 
         [HttpGet("Listar-compras")]
-        public List<Reeadcarrinho> listar()
+        public List<Carrinho> listar()
         {
             return service.Listar();
+        }
+        [HttpGet("Listar-carrino")]
+        public List<Reeadcarrinho> listarcarrinhodousuario(int usuarioid)
+        {
+            return service.listarcarrinhodousuario(usuarioid);
         }
 
         [HttpDelete("Remover-compras")]

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ctrgamer._01_service;
 using ctrgamer._03_entidades;
+using ctrgamer._03_entidades.DTO.Categorias;
 using Microsoft.AspNetCore.Mvc;
 
 namespace apictrgamer.Controllers
@@ -30,6 +31,11 @@ namespace apictrgamer.Controllers
         public List<JogoCategoria> Listaraluno()
         {
             return service.Listar();
+        }
+        [HttpGet("Listar-categoria")]
+        public List<ReadCategoria> listarjogoporcategoria(int Jogocategoria)
+        {
+            return service.ListarJogoPorCategoria(Jogocategoria);
         }
         [HttpDelete("Remover-aluno")]
         public void Removeralunoaluno(int id)

@@ -30,32 +30,39 @@ namespace ctrgamer._02_Repositorio
            _pagamentorepository=new pagamentorepositor(connectionString);
 
         }
-        public void Adicionar(Carrinho c)
+        public void Adicionar(Carrinho carrinho)
         {
             using var connection = new SQLiteConnection(ConnectionString);
-            connection.Insert<Carrinho>(c);
-
+            connection.Insert<Carrinho>(carrinho);
         }
-        public   List<Reeadcarrinho> listar()
+        public List<Carrinho> Listar()
         {
+            using var connection = new SQLiteConnection(ConnectionString);
+            List<Carrinho> list = connection.GetAll<Carrinho>().ToList();
+            //TransformarListaCarrinhoEmCarrinhoDTO();
+            return list;
+        }
+
+        private List<Reeadcarrinho> TransformarListaCarrinhoEmCarrinhoDTO(List<Carrinho> list)
+        {
+            List<Reeadcarrinho> listDTO = new List<Reeadcarrinho>();
+
+            foreach (Carrinho car in list)
             {
-                using var connection = new SQLiteConnection(ConnectionString);
-                {
-                    List<Carrinho> c = connection.GetAll<Carrinho>().ToList();
-                    List<Reeadcarrinho> carrinhodtos = new List<Reeadcarrinho>();
-                    foreach (Carrinho r in c)
-                    {
-                        Reeadcarrinho carrinhodto = new Reeadcarrinho();
-                        carrinhodto.ID = r.ID;
-                        carrinhodto.usuario = _repositoryusuario.Buscarporid(r.usuarioid);
-                        carrinhodto.jogo = _reposytoryjogo.Buscarporid(r.JogoId);
-                        carrinhodto.pagamento = _pagamentorepository.Buscarporid(r.pagamentoid);
-                        carrinhodtos.Add(carrinhodto);
-                     
-                    }
-                    return carrinhodtos;
-                }
+                Reeadcarrinho readCarrinho = new Reeadcarrinho();
+                readCarrinho.usuario = _repositoryusuario.Buscarporid(car.usuarioid);
+                readCarrinho.jogo = _reposytoryjogo.Buscarporid(car.JogoId);
+                readCarrinho.pagamento = _pagamentorepository.Buscarporid(car.pagamentoid);
+                listDTO.Add(readCarrinho);
             }
+            return listDTO;
+        }
+        public List<Reeadcarrinho> ListarCarrinhoDoUsuario(int usuarioId)
+        {
+            using var connection = new SQLiteConnection(ConnectionString);
+            List<Carrinho> list = connection.Query<Carrinho>($"SELECT Id, jogoid,pagamentoid, usuarioid FROM carrinhos WHERE UsuarioId = {usuarioId}").ToList();
+            List<Reeadcarrinho> listDTO = TransformarListaCarrinhoEmCarrinhoDTO(list);
+            return listDTO;
         }
         public Carrinho Buscarporid(int id)
         {

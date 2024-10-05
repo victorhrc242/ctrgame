@@ -1,5 +1,6 @@
 ﻿using ctrgamer._02_Repositorio;
 using ctrgamer._03_entidades;
+using ctrgamer._03_entidades.DTO.Categorias;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,11 @@ namespace ctrgamer._01_service
 
         public List<JogoCategoria> Listar()
         {
-            return repositorio.listar();
+            return repositorio.Listar();
+        }
+        public List<ReadCategoria> ListarJogoPorCategoria(int categoriaId)
+        {
+            return repositorio.ListarJogoPorCategoria(categoriaId);
         }
         public void editar(JogoCategoria j)
         {

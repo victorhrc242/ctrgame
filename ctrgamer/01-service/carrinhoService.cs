@@ -26,9 +26,13 @@ public class carrinhoService
             repositorio.Adicionar(carrinho);
         }
 
-    public List<Reeadcarrinho> Listar()
+    public List<Carrinho> Listar()
     {
-        return repositorio.listar();
+        return repositorio.Listar();
+    }
+    public List<Reeadcarrinho> listarcarrinhodousuario(int usuarioid)
+    {
+        return repositorio.ListarCarrinhoDoUsuario(usuarioid);
     }
     public void editar(Carrinho c)
         {
