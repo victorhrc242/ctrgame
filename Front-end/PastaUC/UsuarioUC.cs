@@ -28,6 +28,11 @@ namespace FrontEnd.PastaUC
             HttpResponseMessage response = _client.PostAsJsonAsync("usuario/adicionar-usuario", usuario).Result;
         }
 
-   
+        public List<usuarioS> ListarUsuarios()
+        {
+            return _client.GetFromJsonAsync<List<usuarioS>>("usuario/Listar-usuarios").Result;
+        }
+
+
     }
 }
