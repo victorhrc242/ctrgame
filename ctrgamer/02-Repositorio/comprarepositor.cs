@@ -34,6 +34,9 @@ namespace ctrgamer._02_Repositorio
             connection.Insert<Compra>(u);
 
         }
+
+
+
         public List<Compra> Listar()
         {
             using var connection = new SQLiteConnection(ConnectionString);
@@ -49,10 +52,19 @@ namespace ctrgamer._02_Repositorio
             foreach (Compra car in list)
             {
                 ReadCompraDTO readCarrinho = new ReadCompraDTO();
-                readCarrinho.carrinmho = _carrrinhoreposito.Buscarporid(car.carrinhoid);
+
+                // Mapeia o carrinho associado à compra
+                readCarrinho.Carrinho = _carrrinhoreposito.Buscarporid(car.carrinhoid); // Certifique-se de que 'Carrinho' esteja correto no DTO
                 readCarrinho.usuario = _usuariorepositor.Buscarporid(car.usuarioid);
+                // Mapeia os outros campos da compra
+                readCarrinho.Id = car.Id;// Id da compra
+                readCarrinho.DataCompra = car.Datacompra;    // Data da compra 
+                readCarrinho.MetodoPagamento = car.tipodepagamento; // Método de pagamento (ex: "PIX", "Crédito")
+                readCarrinho.ValorFinal=car.ValorFinal;
+                // Adiciona o DTO à lista
                 listDTO.Add(readCarrinho);
             }
+
             return listDTO;
         }
         public List<ReadCompraDTO> ListarCarrinhoDoUsuario(int usuarioId)

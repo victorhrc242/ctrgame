@@ -1,5 +1,6 @@
 ﻿using ctrgamer._03_entidades;
 using ctrgamer._03_entidades.DTO.carrinho;
+using ctrgamer._03_entidades.DTO.Compra;
 using Front_end.PastaUC;
 using FrontEnd.DTOS;
 using FrontEnd.PastaUC;
@@ -17,12 +18,14 @@ namespace FrontEnd.inicio
         private static usuarioS usuariologado;
         private readonly UsuarioUC _UsuarioUC;
         private readonly CarrinhoUC _CarrinhoUC;
+        private readonly CompraUC _CompraUC;
         private readonly JogoUC _JogoUC;
         public sistema(HttpClient cliente)
         {
-                _UsuarioUC=new UsuarioUC(cliente);
+            _UsuarioUC = new UsuarioUC(cliente);
             _JogoUC = new JogoUC(cliente);
-            _CarrinhoUC=new CarrinhoUC(cliente);
+            _CarrinhoUC = new CarrinhoUC(cliente);
+            _CompraUC = new CompraUC(cliente);
         }
         //iniciar sistema//
         public void iniciarsistema()
@@ -46,7 +49,7 @@ namespace FrontEnd.inicio
                 }
                 else
                 {
-                    Usuariologindto usudto= new Usuariologindto();
+                    Usuariologindto usudto = new Usuariologindto();
                     exibirmenuprincipal(usudto);
                 }
             }
@@ -57,9 +60,9 @@ namespace FrontEnd.inicio
             Console.WriteLine($"---------Bem vindo-----------\n" +
                               $"1-Fazer Login\n" +
                               $"2-Cadastra Usuario");
-            
 
-            return int.Parse( Console.ReadLine() );
+
+            return int.Parse(Console.ReadLine());
         }
         public void exibirmenuprincipal(Usuariologindto usu)
         {
@@ -98,12 +101,29 @@ namespace FrontEnd.inicio
                 {
                     Console.WriteLine(car.ToString());
                 }
+                // 2. Mostrar o valor total dos itens
+                double valorTotal = SomaValores();
+                Console.WriteLine($"Valor total da compra: {valorTotal:C}");
 
+                // 3. Perguntar se o usuário deseja finalizar a compra
+                Console.WriteLine("Deseja finalizar a compra? (1 - Sim / 0 - Não)");
+                int finalizar = int.Parse(Console.ReadLine());
+
+                if (finalizar == 1)
+                {
+                    // 4. Finalizar a venda
+                    FinalizarVenda(usuariologado.ID);
+                    Console.WriteLine("Compra finalizada com sucesso!");
+                }
+                else
+                {
+                    Console.WriteLine("Compra não finalizada.");
+                }
 
             }
-            if(resposta == 3)
+            if (resposta == 3)
             {
-                
+                ListarMeusJogos();
 
             }
             if (resposta == 4)
@@ -112,56 +132,59 @@ namespace FrontEnd.inicio
             }
         }
 
-        //private void FinalizarVenda(int usuarioid)
-        //{
-        //    Compra c = CriarVenda(usuarioid);
-        //    c = _vendaUC.CadastrarVenda(v);
-        //    ReadVendaReciboDTO recibo = _vendaUC.BuscarVendaPorId(v.Id);
-        //    Console.WriteLine(recibo.ToString());
-        //}
+        private void FinalizarVenda(int usuarioid)
+        {
+            Compra c = CriarVenda(usuarioid);
+            c = _CompraUC.CadastrarVenda(c);
+            ReadCompraDTO recibo = _CompraUC.BuscarVendaPorId(c.Id);
+            Console.WriteLine(recibo.ToString());
+        }
+        private Compra CriarVenda(int usuarioid)
+        {
+            Compra v = new Compra();
 
-        //private Compra CriarVenda(int usuarioid)
-        //{
-        //    Compra v = new Compra();
+            Console.WriteLine("Digite a forma de pagamento:" +
+                "\n 1- PIX" +
+                "\n 2- Debito" +
+                "\n 3- Crédito");
 
-        //    Console.WriteLine("Digite a forma de pagamento:" +
-        //        "\n 1- PIX" +
-        //        "\n 2- Debito" +
-        //        "\n 3- Crédito");
+            int opcaoselecionada =int.Parse( Console.ReadLine());
+            if (opcaoselecionada < 1 || opcaoselecionada > 3)
+            {
+                Console.WriteLine("Opção inválida. Por favor, selecione 1, 2 ou 3.");
+                return null; // Ou lidar de outra forma
+            }
 
-        //    int opcaoSelecionada = int.Parse(Console.ReadLine());
-        //    DateTime dateTime;
-        //    v.tipodepagamento = v.GetMetodoPagamentoById(opcaoSelecionada);
-        //    v.usuarioid = usuarioid;
-        //    v.ValorFinal= SomaValores();
-        //    v.Datacompr = dateTime;
+            v.tipodepagamento = v.GetMetodoPagamentoById(opcaoselecionada);
+            DateTime dateTime;
+            v.usuarioid = usuarioid;
+            v.ValorFinal = SomaValores();
+            return v;
+        }
+        public double SomaValores()
+        {
+            double valor = 0;
+            List<Reeadcarrinho> carrinhosDTO = _CarrinhoUC.ListarCarrinhoUsuarioLogado(usuariologado.ID);
+            foreach (Reeadcarrinho car in carrinhosDTO)
+            {
+                valor += car.jogo.preco;
+            }
+            return valor;
+        }
 
-        //    return v;
-        //}
-        //public double SomaValores()
-        //{
-        //    double valor = 0;
-        //    List<Reeadcarrinho> carrinhosDTO = _CarrinhoUC.ListarCarrinhoUsuarioLogado(usuariologado.ID);
-        //    foreach (Reeadcarrinho car in carrinhosDTO)
-        //    {
-        //        valor += car.jogo.preco;
-        //    }
-        //    return valor;
-        //}
-
-        //public void ListarMeusJogos()
-        //{
-        //    List<Compra> compras = _vendaUC.ListarComprasPorUsuario(usuariologado.ID);
-        //    foreach (Compra compra in compras)
-        //    {
-        //        Console.WriteLine($"Compra ID: {compra.Id}, Data: {compra.Datacompr}, Valor: {compra.ValorFinal}");
-        //        // Adicione mais detalhes dos jogos comprados, se necessário
-        //    }
-        //}
+        public void ListarMeusJogos()
+        {
+            List<Compra> compras = _CompraUC.ListarComprasPorUsuario(usuariologado.ID);
+            foreach (Compra compra in compras)
+            {
+                Console.WriteLine($"Compra ID: {compra.Id}, Data: {compra.Datacompra}, Valor: {compra.ValorFinal}");
+                // Adicione mais detalhes dos jogos comprados, se necessário
+            }
+        }
         //opçoes//
         public usuarioS CriarUsuario()
         {
-           usuarioS usuario = new usuarioS();
+            usuarioS usuario = new usuarioS();
             Console.WriteLine("Digite seu nome: ");
             usuario.NOME = Console.ReadLine();
             Console.WriteLine("Digite seu username: ");
@@ -171,9 +194,9 @@ namespace FrontEnd.inicio
             Console.WriteLine("Digite seu email: ");
             usuario.EMAIL = Console.ReadLine();
             Console.WriteLine("Digite seu CPF: ");
-            usuario.CPF =double.Parse( Console.ReadLine());
+            usuario.CPF = double.Parse(Console.ReadLine());
             Console.WriteLine("Digite Sua idade: ");
-            usuario.IDADE =int.Parse( Console.ReadLine());
+            usuario.IDADE = int.Parse(Console.ReadLine());
             return usuario;
         }
         public void FazerLogin()
@@ -204,7 +227,7 @@ namespace FrontEnd.inicio
         }
         private void listarusuario()
         {
-            List<usuarioS> usuario =_UsuarioUC.ListarUsuarios();
+            List<usuarioS> usuario = _UsuarioUC.ListarUsuarios();
             foreach (usuarioS u in usuario)
             {
                 Console.WriteLine(u.ToString());

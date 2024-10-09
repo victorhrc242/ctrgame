@@ -14,7 +14,7 @@ public class Compra
     public string tipodepagamento { get; set; }
     public DateTime Datacompra { get; set; }
     public double ValorFinal { get; set; }
-
+ 
     public string GetMetodoPagamentoById(int opcaoSelecionada)
     {
         switch (opcaoSelecionada)

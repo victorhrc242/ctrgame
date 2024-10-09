@@ -1,4 +1,5 @@
 ﻿using ctrgamer._03_entidades;
+using ctrgamer._03_entidades.DTO.Compra;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,15 +18,18 @@ namespace Front_end.PastaUC
         }
         public Compra CadastrarVenda(Compra venda)
         {
-            HttpResponseMessage response = _client.PostAsJsonAsync("Venda/adicionar-venda", venda).Result;
+            HttpResponseMessage response = _client.PostAsJsonAsync("compracontroleer/adicionar-usuario", venda).Result;
 
             Compra vendaCadastrada = response.Content.ReadFromJsonAsync<Compra>().Result;
             return vendaCadastrada;
         }
 
-        //public ReadVendaReciboDTO BuscarVendaPorId(int id)
-        //{
-        //    return _client.GetFromJsonAsync<ReadVendaReciboDTO>("Venda/buscar-por-id?id=" + id).Result;
-        //}
+
+        public ReadCompraDTO BuscarVendaPorId(int id)
+        {
+            return _client.GetFromJsonAsync<ReadCompraDTO>("Listar-compra?usuarioid=" + id).Result;
+        }
+
+
     }
 }

@@ -9,14 +9,11 @@ namespace ctrgamer._03_entidades.DTO.Compra
 {
     public class ReadCompraDTO
     {
-
         public int Id { get; set; }
-        public Carrinho Carrinho { get; set; }
+        public Carrinho Carrinho { get; set; }  
         public usuarioS usuario { get; set; }
         public DateTime DataCompra { get; set; }
         public double ValorFinal { get; set; }
         public string MetodoPagamento { get; set; }
-
-
     }
 }

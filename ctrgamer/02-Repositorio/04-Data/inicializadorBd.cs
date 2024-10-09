@@ -64,7 +64,8 @@ namespace ctrgamer._04_Data
                         carrinhoid INTEGER,
                         usuarioid INTEGER,
                         tipodepagamento TEXT,
-                        Datacompra DATETIME NOT NULL
+                        Datacompra DATETIME NOT NULL,
+                        ValorFinal REAL not null
                     );";
                 ExecuteCommand(connection, commandoSQL);
 

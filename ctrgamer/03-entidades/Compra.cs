@@ -11,6 +11,7 @@ public class Compra
     public int Id { get; set; }
     public int carrinhoid { get; set; }
     public int usuarioid { get; set; }
+    public double ValorFinal { get; set; }
     public string tipodepagamento { get; set; }
     public DateTime Datacompra { get; set; }
 }
