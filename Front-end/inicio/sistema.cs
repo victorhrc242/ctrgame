@@ -123,7 +123,7 @@ namespace FrontEnd.inicio
             }
             if (resposta == 3)
             {
-                ListarMeusJogos();
+                //ListarMeusJogos();
 
             }
             if (resposta == 4)
@@ -172,15 +172,15 @@ namespace FrontEnd.inicio
             return valor;
         }
 
-        public void ListarMeusJogos()
-        {
-            List<Compra> compras = _CompraUC.ListarComprasPorUsuario(usuariologado.ID);
-            foreach (Compra compra in compras)
-            {
-                Console.WriteLine($"Compra ID: {compra.Id}, Data: {compra.Datacompra}, Valor: {compra.ValorFinal}");
-                // Adicione mais detalhes dos jogos comprados, se necessário
-            }
-        }
+        //public void ListarMeusJogos()
+        //{
+        //    //List<Compra> compras = _CompraUC.ListarComprasPorUsuario(usuariologado.ID);
+        //    foreach (Compra compra in compras)
+        //    {
+        //        Console.WriteLine($"Compra ID: {compra.Id}, Data: {compra.Datacompra}, Valor: {compra.ValorFinal}");
+        //        // Adicione mais detalhes dos jogos comprados, se necessário
+        //    }
+        //}
         //opçoes//
         public usuarioS CriarUsuario()
         {
