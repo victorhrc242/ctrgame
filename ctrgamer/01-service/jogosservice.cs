@@ -1,4 +1,5 @@
 ﻿using ctrgamer._02_Repositorio;
+using ctrgamer._02_Repositorio.Interfaces;
 using ctrgamer._03_entidades;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace ctrgamer._01_service;
 
 public class jogosservice
 {
-    Jogorepositorio repositorio { get; set; }
+    IJogos repositorio { get; set; }
 
     public jogosservice(string connectionString)
     {
