@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ctrgamer._01_service;
+using ctrgamer._01_service.Interfaces;
 using ctrgamer._03_entidades;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,7 +10,7 @@ namespace apictrgamer.Controllers
     [Route("[controller]")]
     public class revendedorcontroller:ControllerBase
     {
-        private readonly reevedendorservice_ service;
+        private readonly IReevendedoservice service;
         private readonly IMapper mapper;
         public revendedorcontroller(IMapper _mapper, IConfiguration configuration)
         {

@@ -1,0 +1,21 @@
+﻿using ctrgamer._03_entidades;
+using ctrgamer._03_entidades.DTO.carrinho;
+using System;
+using System.Collections.Generic;
+using System.Data.SQLite;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ctrgamer._02_Repositorio.Interfaces
+{
+    internal interface ICarrinhorepositor
+    {
+        public void Adicionar(Carrinho carrinho);
+        public List<Carrinho> Listar();
+        public List<Reeadcarrinho> ListarCarrinhoDoUsuario(int usuarioId);
+        public Carrinho Buscarporid(int id);
+        public void Remover(int id);
+        public void editar(Carrinho c);
+    }
+}

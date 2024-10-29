@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ctrgamer._01_service;
+using ctrgamer._01_service.Interfaces;
 using ctrgamer._03_entidades;
 using ctrgamer._03_entidades.DTO;
 using ctrgamer._03_entidades.DTO;
@@ -12,7 +13,7 @@ namespace apictrgamer.Controllers;
 public class usuarioController :ControllerBase
 {
 
-    private readonly  UsuarioService _service;
+    private readonly  IUsuarioservice _service;
     private readonly IMapper mapper;
     public usuarioController(IMapper _mapper, IConfiguration configuration)
     {

@@ -1,4 +1,5 @@
-﻿using ctrgamer._03_entidades;
+﻿using ctrgamer._02_Repositorio.Interfaces;
+using ctrgamer._03_entidades;
 using Dapper.Contrib.Extensions;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ctrgamer._02_Repositorio
 {
-    public class revendedorrepositor
+    public class revendedorrepositor:IRevendedorRepositor
     {
         private readonly string ConnectionString;
         public revendedorrepositor(string connectionString)

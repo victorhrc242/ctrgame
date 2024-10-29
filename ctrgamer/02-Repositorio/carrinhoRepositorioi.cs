@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ctrgamer._02_Repositorio.Interfaces;
 using ctrgamer._03_entidades;
 using ctrgamer._03_entidades.DTO.carrinho;
 using Dapper;
@@ -13,12 +14,12 @@ using System.Threading.Tasks;
 
 namespace ctrgamer._02_Repositorio
 {
-    public class carrinhoRepositorioi
+    public class carrinhoRepositorioi:ICarrinhorepositor
     {
         private  readonly  string ConnectionString;
         private readonly IMapper _mapper;
-        private readonly Jogorepositorio _reposytoryjogo;
-        private readonly UsuarioRepositor _repositoryusuario;
+        private readonly IJogosReposytor _reposytoryjogo;
+        private readonly IUsuariorepositor _repositoryusuario;
         public  carrinhoRepositorioi ( string  connectionString)
         {
 

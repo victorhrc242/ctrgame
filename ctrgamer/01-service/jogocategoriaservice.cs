@@ -1,4 +1,6 @@
-﻿using ctrgamer._02_Repositorio;
+﻿using ctrgamer._01_service.Interfaces;
+using ctrgamer._02_Repositorio;
+using ctrgamer._02_Repositorio.Interfaces;
 using ctrgamer._03_entidades;
 using ctrgamer._03_entidades.DTO.Categorias;
 using System;
@@ -9,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace ctrgamer._01_service
 {
-    public class jogocategoriaservice
+    public class jogocategoriaservice:IJogocategoriaservice
     {
-        jogocategoriarepositor repositorio { get; set; }
+        IJogocategoriaRepositor repositorio { get; set; }
         public jogocategoriaservice(string connectionString)
         {
             repositorio = new jogocategoriarepositor(connectionString);

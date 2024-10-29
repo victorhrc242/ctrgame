@@ -1,4 +1,6 @@
-﻿using ctrgamer._02_Repositorio;
+﻿using ctrgamer._01_service.Interfaces;
+using ctrgamer._02_Repositorio;
+using ctrgamer._02_Repositorio.Interfaces;
 using ctrgamer._03_entidades;
 using System;
 using System.Collections.Generic;
@@ -8,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace ctrgamer._01_service
 {
-    public class reevedendorservice_
+    public class reevedendorservice_: IReevendedoservice
     {
-        revendedorrepositor repositorio { get; set; }
+        IRevendedorRepositor repositorio { get; set; }
         public reevedendorservice_(string connectionString)
         {
             repositorio = new revendedorrepositor(connectionString);

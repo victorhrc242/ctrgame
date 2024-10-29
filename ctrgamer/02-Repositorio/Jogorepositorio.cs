@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ctrgamer._02_Repositorio;
 
-public class Jogorepositorio:IJogos
+public class Jogorepositorio:IJogosReposytor
 {
     private readonly  string ConnectionString;
 

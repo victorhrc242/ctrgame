@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ctrgamer._01_service;
+using ctrgamer._01_service.Interfaces;
 using ctrgamer._03_entidades;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,7 +13,7 @@ public class jogoscontroller : ControllerBase
     
     
 
-      private readonly jogosservice service;
+      private readonly IJogoservice service;
     private readonly IMapper mapper;
         public jogoscontroller(IMapper _mapper, IConfiguration configuration)
         {

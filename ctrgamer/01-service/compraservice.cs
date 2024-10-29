@@ -1,4 +1,6 @@
-﻿using ctrgamer._02_Repositorio;
+﻿using ctrgamer._01_service.Interfaces;
+using ctrgamer._02_Repositorio;
+using ctrgamer._02_Repositorio.Interfaces;
 using ctrgamer._03_entidades;
 using ctrgamer._03_entidades.DTO.Compra;
 using System;
@@ -9,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace ctrgamer._01_service
 {
-    public class compraservice
+    public class compraservice:Icomprasservice
     {
-        comprarepositor repositorio { get; set; }
+        IComprarepositor repositorio { get; set; }
         public compraservice(string connectionString)
         {
             repositorio = new comprarepositor(connectionString);

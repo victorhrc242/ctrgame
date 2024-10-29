@@ -1,4 +1,5 @@
-﻿using ctrgamer._03_entidades;
+﻿using ctrgamer._02_Repositorio.Interfaces;
+using ctrgamer._03_entidades;
 using ctrgamer._03_entidades.DTO.carrinho;
 using ctrgamer._03_entidades.DTO.Compra;
 using Dapper;
@@ -12,11 +13,11 @@ using System.Threading.Tasks;
 
 namespace ctrgamer._02_Repositorio
 {
-    public class comprarepositor
+    public class comprarepositor:IComprarepositor
     {
         private readonly string ConnectionString;
-        private readonly carrinhoRepositorioi _carrrinhoreposito;
-        private readonly UsuarioRepositor _usuariorepositor;
+        private readonly ICarrinhorepositor _carrrinhoreposito;
+        private readonly IUsuariorepositor _usuariorepositor;
         public comprarepositor(string connectionString)
         {
 

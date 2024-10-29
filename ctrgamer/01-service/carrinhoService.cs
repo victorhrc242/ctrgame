@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using ctrgamer._01_service.Interfaces;
 using ctrgamer._02_Repositorio;
+using ctrgamer._02_Repositorio.Interfaces;
 using ctrgamer._03_entidades;
 using ctrgamer._03_entidades.DTO.carrinho;
 using System;
@@ -10,13 +12,13 @@ using System.Threading.Tasks;
 
 namespace ctrgamer._01_service;
 
-public class carrinhoService
+public class carrinhoService:ICarrinhoservice
 {
 
 
    
 
-        carrinhoRepositorioi repositorio { get; set; }
+        ICarrinhorepositor repositorio { get; set; }
     public carrinhoService(string connectionString,IMapper MAPPER)
     {
         repositorio = new carrinhoRepositorioi(connectionString);

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ctrgamer._01_service;
+using ctrgamer._01_service.Interfaces;
 using ctrgamer._03_entidades;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,7 +11,7 @@ namespace apictrgamer.Controllers;
 [Route("[controller]")]
 public class categoriacontroller:ControllerBase
 {
-    private readonly categoriaservice service;
+    private readonly Icategoriasservice service;
     private readonly IMapper mapper;
     public categoriacontroller(IMapper _mapper, IConfiguration configuration)
     {

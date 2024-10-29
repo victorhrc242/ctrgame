@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ctrgamer._02_Repositorio.Interfaces
 {
-    public interface ICategoria
+    public interface ICategoriaReposytor
     {
         void Adicionar(Categoria u);
         List<Categoria> listar();

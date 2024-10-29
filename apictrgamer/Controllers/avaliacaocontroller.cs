@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ctrgamer._01_service;
+using ctrgamer._01_service.Interfaces;
 using ctrgamer._03_entidades;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,7 +11,7 @@ namespace apictrgamer.Controllers
 
     public class avaliacaocontroller:ControllerBase
     {
-        private readonly avaliacaosservice service;
+        private readonly IAvaliacaoservice service;
         private readonly IMapper mapper;
         public avaliacaocontroller(IMapper _mapper, IConfiguration configuration)
         {

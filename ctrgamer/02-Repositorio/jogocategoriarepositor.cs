@@ -1,4 +1,5 @@
-﻿using ctrgamer._03_entidades;
+﻿using ctrgamer._02_Repositorio.Interfaces;
+using ctrgamer._03_entidades;
 using ctrgamer._03_entidades.DTO.Categorias;
 using Dapper;
 using Dapper.Contrib.Extensions;
@@ -11,11 +12,11 @@ using System.Threading.Tasks;
 
 namespace ctrgamer._02_Repositorio
 {
-    public class jogocategoriarepositor
+    public class jogocategoriarepositor:IJogocategoriaRepositor
     {
         private readonly string ConnectionString;
-        private readonly Jogorepositorio _jogorepositorio;
-        private readonly categoriarepositor _categoriarepositor;
+        private readonly IJogosReposytor _jogorepositorio;
+        private readonly ICategoriaReposytor _categoriarepositor;
         public jogocategoriarepositor(string connectionString)
         {
 

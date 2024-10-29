@@ -1,4 +1,6 @@
-﻿using ctrgamer._02_Repositorio;
+﻿using ctrgamer._01_service.Interfaces;
+using ctrgamer._02_Repositorio;
+using ctrgamer._02_Repositorio.Interfaces;
 using ctrgamer._03_entidades;
 using System;
 using System.Collections.Generic;
@@ -8,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace ctrgamer._01_service
 {
-    public class categoriaservice
+    public class categoriaservice:Icategoriasservice
     {
-        categoriarepositor repositorio { get; set; }
+        ICategoriaReposytor repositorio { get; set; }
         public categoriaservice(string connectionString)
         {
 

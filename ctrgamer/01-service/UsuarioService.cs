@@ -1,4 +1,6 @@
-﻿using ctrgamer._02_Repositorio;
+﻿using ctrgamer._01_service.Interfaces;
+using ctrgamer._02_Repositorio;
+using ctrgamer._02_Repositorio.Interfaces;
 using ctrgamer._03_entidades;
 using FrontEnd.DTOS;
 using System;
@@ -9,10 +11,10 @@ using System.Threading.Tasks;
 
 namespace ctrgamer._01_service
 {
-    public class UsuarioService
+    public class UsuarioService:IUsuarioservice
     {
 
-      UsuarioRepositor repositorio { get; set; }
+      IUsuariorepositor repositorio { get; set; }
         public UsuarioService(string connectionString)
         {
             repositorio=new UsuarioRepositor(connectionString);
