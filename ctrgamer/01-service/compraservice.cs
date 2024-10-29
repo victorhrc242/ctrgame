@@ -13,7 +13,7 @@ namespace ctrgamer._01_service
 {
     public class compraservice:Icomprasservice
     {
-        IComprarepositor repositorio { get; set; }
+        private readonly IComprarepositor repositorio;
         public compraservice(string connectionString)
         {
             repositorio = new comprarepositor(connectionString);

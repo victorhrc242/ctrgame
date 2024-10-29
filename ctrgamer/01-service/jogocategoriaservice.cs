@@ -13,7 +13,7 @@ namespace ctrgamer._01_service
 {
     public class jogocategoriaservice:IJogocategoriaservice
     {
-        IJogocategoriaRepositor repositorio { get; set; }
+        private readonly IJogocategoriaRepositor repositorio;
         public jogocategoriaservice(string connectionString)
         {
             repositorio = new jogocategoriarepositor(connectionString);

@@ -12,7 +12,7 @@ namespace ctrgamer._01_service;
 
 public class jogosservice:IJogoservice
 {
-    IJogosReposytor repositorio { get; set; }
+    private readonly IJogosReposytor repositorio;
 
     public jogosservice(string connectionString)
     {

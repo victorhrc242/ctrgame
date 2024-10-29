@@ -12,7 +12,7 @@ namespace ctrgamer._01_service
 {
     public class reevedendorservice_: IReevendedoservice
     {
-        IRevendedorRepositor repositorio { get; set; }
+        private readonly IRevendedorRepositor repositorio;
         public reevedendorservice_(string connectionString)
         {
             repositorio = new revendedorrepositor(connectionString);

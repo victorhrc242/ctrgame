@@ -18,7 +18,7 @@ public class carrinhoService:ICarrinhoservice
 
    
 
-        ICarrinhorepositor repositorio { get; set; }
+        private readonly ICarrinhorepositor repositorio;
     public carrinhoService(string connectionString,IMapper MAPPER)
     {
         repositorio = new carrinhoRepositorioi(connectionString);

@@ -12,7 +12,7 @@ namespace ctrgamer._01_service
 {
     public class avaliacaosservice:IAvaliacaoservice
     {
-        IAvaliacaoReposytor repositorio { get; set; }
+        private readonly IAvaliacaoReposytor repositorio;
         public avaliacaosservice(string connectionString)
         {
             repositorio = new AvaliacaRepositor(connectionString);

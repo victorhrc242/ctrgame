@@ -14,7 +14,7 @@ namespace ctrgamer._01_service
     public class UsuarioService:IUsuarioservice
     {
 
-      IUsuariorepositor repositorio { get; set; }
+        private readonly IUsuariorepositor repositorio;
         public UsuarioService(string connectionString)
         {
             repositorio=new UsuarioRepositor(connectionString);

@@ -12,7 +12,7 @@ namespace ctrgamer._01_service
 {
     public class categoriaservice:Icategoriasservice
     {
-        ICategoriaReposytor repositorio { get; set; }
+        private readonly ICategoriaReposytor repositorio;
         public categoriaservice(string connectionString)
         {
 
