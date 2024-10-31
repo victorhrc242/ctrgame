@@ -13,10 +13,10 @@ namespace apictrgamer.Controllers
     {
         private readonly IAvaliacaoservice service;
         private readonly IMapper mapper;
-        public avaliacaocontroller(IMapper _mapper, IConfiguration configuration)
+        public avaliacaocontroller(IMapper _mapper, IConfiguration configuration,IAvaliacaoservice avaliacaoservice)
         {
             string connectionString = configuration.GetConnectionString("DefaultConnection");
-            service = new avaliacaosservice(connectionString);
+            service = avaliacaoservice;
             mapper = _mapper;
 
         }

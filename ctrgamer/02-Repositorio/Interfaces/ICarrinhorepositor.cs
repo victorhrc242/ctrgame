@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ctrgamer._02_Repositorio.Interfaces
 {
-    internal interface ICarrinhorepositor
+    public interface ICarrinhorepositor
     {
         public void Adicionar(Carrinho carrinho);
         public List<Carrinho> Listar();

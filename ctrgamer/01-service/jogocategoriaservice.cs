@@ -14,9 +14,9 @@ namespace ctrgamer._01_service
     public class jogocategoriaservice:IJogocategoriaservice
     {
         private readonly IJogocategoriaRepositor repositorio;
-        public jogocategoriaservice(string connectionString)
+        public jogocategoriaservice(IJogocategoriaRepositor jogocategoriaRepositor)
         {
-            repositorio = new jogocategoriarepositor(connectionString);
+            repositorio = jogocategoriaRepositor;
         }
         public void Adicionar(JogoCategoria j)
         {

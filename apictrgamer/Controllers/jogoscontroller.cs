@@ -15,10 +15,10 @@ public class jogoscontroller : ControllerBase
 
       private readonly IJogoservice service;
     private readonly IMapper mapper;
-        public jogoscontroller(IMapper _mapper, IConfiguration configuration)
+        public jogoscontroller(IMapper _mapper, IConfiguration configuration,IJogoservice jogoservice)
         {
         string connectionString = configuration.GetConnectionString("DefaultConnection");
-            service = new jogosservice(connectionString);
+        service = jogoservice;
         mapper = _mapper;
         }
 

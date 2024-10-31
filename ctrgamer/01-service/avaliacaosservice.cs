@@ -13,9 +13,9 @@ namespace ctrgamer._01_service
     public class avaliacaosservice:IAvaliacaoservice
     {
         private readonly IAvaliacaoReposytor repositorio;
-        public avaliacaosservice(string connectionString)
+        public avaliacaosservice(IAvaliacaoReposytor avaliacaoReposytor)
         {
-            repositorio = new AvaliacaRepositor(connectionString);
+            repositorio = avaliacaoReposytor;
         }
         public void Adicionar(Avaliacao a)
         {

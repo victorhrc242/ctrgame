@@ -13,9 +13,9 @@ namespace ctrgamer._01_service
     public class reevedendorservice_: IReevendedoservice
     {
         private readonly IRevendedorRepositor repositorio;
-        public reevedendorservice_(string connectionString)
+        public reevedendorservice_(IRevendedorRepositor revendedorRepositor)
         {
-            repositorio = new revendedorrepositor(connectionString);
+            repositorio = revendedorRepositor;
         }
         public void Adicionar(Reevendedor r)
         {

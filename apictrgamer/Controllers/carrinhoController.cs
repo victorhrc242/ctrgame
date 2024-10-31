@@ -14,10 +14,10 @@ namespace apictrgamer.Controllers
         private readonly ICarrinhoservice service;
         private readonly IMapper mapper;
 
-        public carrinhoController(IMapper _mapper, IConfiguration configuration)
+        public carrinhoController(IMapper _mapper, IConfiguration configuration,ICarrinhoservice carrinhoservice)
         {
             string connectionString = configuration.GetConnectionString("DefaultConnection");
-            service = new carrinhoService(connectionString,mapper);
+            service = carrinhoservice;
             mapper = _mapper; // Corrigido para atribuir o parâmetro à variável de instância
         }
 

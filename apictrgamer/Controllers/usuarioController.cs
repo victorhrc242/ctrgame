@@ -15,10 +15,10 @@ public class usuarioController :ControllerBase
 
     private readonly  IUsuarioservice _service;
     private readonly IMapper mapper;
-    public usuarioController(IMapper _mapper, IConfiguration configuration)
+    public usuarioController(IMapper _mapper, IConfiguration configuration,IUsuarioservice usuarioservice)
     {
         string connectionString = configuration.GetConnectionString("DefaultConnection");
-        _service = new UsuarioService(connectionString);
+        _service = usuarioservice;
         mapper = _mapper;
 
     }

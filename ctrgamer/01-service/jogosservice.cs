@@ -14,9 +14,9 @@ public class jogosservice:IJogoservice
 {
     private readonly IJogosReposytor repositorio;
 
-    public jogosservice(string connectionString)
+    public jogosservice(IJogosReposytor jogosReposytor)
     {
-        repositorio=new Jogorepositorio(connectionString);
+        repositorio = jogosReposytor;
     }
 
     public void Adicionar(Jogo J)

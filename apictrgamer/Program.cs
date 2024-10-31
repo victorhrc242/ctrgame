@@ -1,5 +1,9 @@
 using apictrgamer;
 using ctrgamer;
+using ctrgamer._01_service;
+using ctrgamer._01_service.Interfaces;
+using ctrgamer._02_Repositorio;
+using ctrgamer._02_Repositorio.Interfaces;
 using ctrgamer._04_Data;
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +14,31 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(mappingprofile));
+//usuario
+builder.Services.AddScoped<IUsuariorepositor, UsuarioRepositor>();
+builder.Services.AddScoped<IUsuarioservice, UsuarioService>();
+//revendedor
+builder.Services.AddScoped<IRevendedorRepositor, revendedorrepositor>();
+builder.Services.AddScoped<IReevendedoservice, reevedendorservice_>();
+//avaliacao
+builder.Services.AddScoped<IAvaliacaoReposytor, AvaliacaRepositor>();
+builder.Services.AddScoped<IAvaliacaoservice, avaliacaosservice>();
+//carrinho
+builder.Services.AddScoped<ICarrinhorepositor, carrinhoRepositorioi>();
+builder.Services.AddScoped<ICarrinhoservice, carrinhoService>();
+//categoria
+builder.Services.AddScoped<ICategoriaReposytor, categoriarepositor>();
+builder.Services.AddScoped<Icategoriasservice, categoriaservice>();
+//compra
+builder.Services.AddScoped<IComprarepositor, comprarepositor>();
+builder.Services.AddScoped<Icomprasservice, compraservice>();
+//jogo
+builder.Services.AddScoped<IJogosReposytor, Jogorepositorio>();
+builder.Services.AddScoped<IJogoservice, jogosservice>();
+//jogocategoria
+builder.Services.AddScoped<IJogocategoriaRepositor, jogocategoriarepositor>();
+builder.Services.AddScoped<IJogocategoriaservice, jogocategoriaservice>();
+
 var app = builder.Build();
 InicializadorBd.Inicializador();
 // Configure the HTTP request pipeline.

@@ -3,8 +3,10 @@ using ctrgamer._03_entidades;
 using ctrgamer._03_entidades.DTO.Categorias;
 using Dapper;
 using Dapper.Contrib.Extensions;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
@@ -17,12 +19,12 @@ namespace ctrgamer._02_Repositorio
         private readonly string ConnectionString;
         private readonly IJogosReposytor _jogorepositorio;
         private readonly ICategoriaReposytor _categoriarepositor;
-        public jogocategoriarepositor(string connectionString)
+        public jogocategoriarepositor(IConfiguration configuration,IJogosReposytor jogorepositorio,ICategoriaReposytor categoriaReposytor)
         {
 
-            ConnectionString = connectionString;
-        _jogorepositorio=new Jogorepositorio(ConnectionString);
-            _categoriarepositor = new categoriarepositor(ConnectionString);
+            ConnectionString = configuration.GetConnectionString("DefaultConnection");
+            _jogorepositorio = jogorepositorio;
+            _categoriarepositor = categoriaReposytor;
 
         }
         public void Adicionar(JogoCategoria u)

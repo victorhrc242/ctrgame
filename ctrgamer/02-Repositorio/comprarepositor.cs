@@ -4,8 +4,10 @@ using ctrgamer._03_entidades.DTO.carrinho;
 using ctrgamer._03_entidades.DTO.Compra;
 using Dapper;
 using Dapper.Contrib.Extensions;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
@@ -18,12 +20,12 @@ namespace ctrgamer._02_Repositorio
         private readonly string ConnectionString;
         private readonly ICarrinhorepositor _carrrinhoreposito;
         private readonly IUsuariorepositor _usuariorepositor;
-        public comprarepositor(string connectionString)
+        public comprarepositor(IConfiguration configuration,ICarrinhorepositor carrinhorepositorio,IUsuariorepositor usuariorepositor)
         {
 
-            ConnectionString = connectionString;
-            _carrrinhoreposito = new carrinhoRepositorioi(ConnectionString);
-        _usuariorepositor=new UsuarioRepositor(ConnectionString);
+            ConnectionString= configuration.GetConnectionString("DefaultConnection");
+            _carrrinhoreposito = carrinhorepositorio;
+            _usuariorepositor = usuariorepositor;
         }
 
 

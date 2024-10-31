@@ -13,10 +13,10 @@ namespace ctrgamer._01_service
     public class categoriaservice:Icategoriasservice
     {
         private readonly ICategoriaReposytor repositorio;
-        public categoriaservice(string connectionString)
+        public categoriaservice(ICategoriaReposytor categoriaReposytor)
         {
 
-            repositorio = new categoriarepositor(connectionString);
+            repositorio = categoriaReposytor;
         }
         public void Adicionar(Categoria c)
         {

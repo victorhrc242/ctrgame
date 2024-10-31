@@ -12,10 +12,10 @@ namespace apictrgamer.Controllers
     {
         private readonly IReevendedoservice service;
         private readonly IMapper mapper;
-        public revendedorcontroller(IMapper _mapper, IConfiguration configuration)
+        public revendedorcontroller(IMapper _mapper, IConfiguration configuration,reevedendorservice_ reevedendorservice)
         {
             string connectionString = configuration.GetConnectionString("DefaultConnection");
-            service = new reevedendorservice_(connectionString);
+            service = reevedendorservice;
             mapper= _mapper;
 
         }

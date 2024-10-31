@@ -13,10 +13,10 @@ namespace apictrgamer.Controllers
     {
         private readonly IJogocategoriaservice service;
         private readonly IMapper mapper;
-        public jogocatecontroller(IMapper _mapper, IConfiguration configuration)
+        public jogocatecontroller(IMapper _mapper, IConfiguration configuration,IJogocategoriaservice jogocategoriaservice)
         {
             string connectionString = configuration.GetConnectionString("DefaultConnection");
-            service = new jogocategoriaservice(connectionString);
+            service = jogocategoriaservice;
             mapper = _mapper;
 
         }

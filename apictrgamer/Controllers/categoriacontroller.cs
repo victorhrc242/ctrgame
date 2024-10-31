@@ -13,10 +13,10 @@ public class categoriacontroller:ControllerBase
 {
     private readonly Icategoriasservice service;
     private readonly IMapper mapper;
-    public categoriacontroller(IMapper _mapper, IConfiguration configuration)
+    public categoriacontroller(IMapper _mapper, IConfiguration configuration,Icategoriasservice icategoriasservice)
     {
         string connectionString = configuration.GetConnectionString("DefaultConnection");
-        service = new categoriaservice(connectionString);
+        service = icategoriasservice;
         mapper = _mapper;
 
     }

@@ -1,8 +1,10 @@
 ﻿using ctrgamer._02_Repositorio.Interfaces;
 using ctrgamer._03_entidades;
 using Dapper.Contrib.Extensions;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Configuration.Internal;
 using System.Data.SQLite;
 using System.Linq;
@@ -15,9 +17,9 @@ public class Jogorepositorio:IJogosReposytor
 {
     private readonly  string ConnectionString;
 
-    public Jogorepositorio(string connectionString)
+    public Jogorepositorio(IConfiguration configuration)
     {
-       ConnectionString=connectionString;
+       ConnectionString = configuration.GetConnectionString("DefaultConnection");
     }
     public void Adicionar(Jogo J)
     {

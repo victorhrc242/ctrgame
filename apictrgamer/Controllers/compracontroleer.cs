@@ -13,10 +13,10 @@ namespace apictrgamer.Controllers
     {
         private readonly Icomprasservice service;
         private readonly IMapper mapper;
-        public compracontroleer(IMapper _mapper, IConfiguration configuration)
+        public compracontroleer(IMapper _mapper, IConfiguration configuration,Icomprasservice icomprasservice)
         {
             string connectionString = configuration.GetConnectionString("DefaultConnection");
-            service = new compraservice(connectionString);
+            service = icomprasservice;
             mapper = _mapper;
 
         }

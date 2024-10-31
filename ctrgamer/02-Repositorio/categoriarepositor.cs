@@ -1,8 +1,10 @@
 ﻿using ctrgamer._02_Repositorio.Interfaces;
 using ctrgamer._03_entidades;
 using Dapper.Contrib.Extensions;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
@@ -13,10 +15,10 @@ namespace ctrgamer._02_Repositorio
     public class categoriarepositor: ICategoriaReposytor
     {
         private readonly string ConnectionString;
-        public categoriarepositor(string connectionString)
+        public categoriarepositor(IConfiguration configuration)
         {
 
-            ConnectionString = connectionString;
+            ConnectionString = configuration.GetConnectionString("DefaultConnection");
 
         }
 

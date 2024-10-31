@@ -15,9 +15,9 @@ namespace ctrgamer._01_service
     {
 
         private readonly IUsuariorepositor repositorio;
-        public UsuarioService(string connectionString)
+        public UsuarioService(IUsuariorepositor usuariorepositor)
         {
-            repositorio=new UsuarioRepositor(connectionString);
+            repositorio = usuariorepositor;
         }
             public void Adicionar(usuarioS usuario)
             {
