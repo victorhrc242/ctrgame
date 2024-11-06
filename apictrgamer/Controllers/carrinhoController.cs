@@ -50,5 +50,7 @@ namespace apictrgamer.Controllers
         {
             service.editar(c);
         }
+
+       
     }
 }

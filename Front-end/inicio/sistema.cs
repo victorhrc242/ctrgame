@@ -1,14 +1,8 @@
 ﻿using ctrgamer._03_entidades;
 using ctrgamer._03_entidades.DTO.carrinho;
-using ctrgamer._03_entidades.DTO.Compra;
 using Front_end.PastaUC;
 using FrontEnd.DTOS;
 using FrontEnd.PastaUC;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FrontEnd.inicio
 {
@@ -18,14 +12,12 @@ namespace FrontEnd.inicio
         private static usuarioS usuariologado;
         private readonly UsuarioUC _UsuarioUC;
         private readonly CarrinhoUC _CarrinhoUC;
-        private readonly CompraUC _CompraUC;
         private readonly JogoUC _JogoUC;
         public sistema(HttpClient cliente)
         {
             _UsuarioUC = new UsuarioUC(cliente);
             _JogoUC = new JogoUC(cliente);
             _CarrinhoUC = new CarrinhoUC(cliente);
-            _CompraUC = new CompraUC(cliente);
         }
         //iniciar sistema//
         public void iniciarsistema()
@@ -111,14 +103,10 @@ namespace FrontEnd.inicio
 
                 if (finalizar == 1)
                 {
-                    // 4. Finalizar a venda
-                    FinalizarVenda(usuariologado.ID);
-                    Console.WriteLine("Compra finalizada com sucesso!");
+              
                 }
-                else
-                {
-                    Console.WriteLine("Compra não finalizada.");
-                }
+                else;
+             
 
             }
             if (resposta == 3)
@@ -130,36 +118,6 @@ namespace FrontEnd.inicio
             {
                 listarusuario();
             }
-        }
-
-        private void FinalizarVenda(int usuarioid)
-        {
-            Compra c = CriarVenda(usuarioid);
-            c = _CompraUC.CadastrarVenda(c);
-            ReadCompraDTO recibo = _CompraUC.BuscarVendaPorId(c.Id);
-            Console.WriteLine(recibo.ToString());
-        }
-        private Compra CriarVenda(int usuarioid)
-        {
-            Compra v = new Compra();
-
-            Console.WriteLine("Digite a forma de pagamento:" +
-                "\n 1- PIX" +
-                "\n 2- Debito" +
-                "\n 3- Crédito");
-
-            int opcaoselecionada =int.Parse( Console.ReadLine());
-            if (opcaoselecionada < 1 || opcaoselecionada > 3)
-            {
-                Console.WriteLine("Opção inválida. Por favor, selecione 1, 2 ou 3.");
-                return null; // Ou lidar de outra forma
-            }
-
-            v.tipodepagamento = v.GetMetodoPagamentoById(opcaoselecionada);
-            DateTime dateTime;
-            v.usuarioid = usuarioid;
-            v.ValorFinal = SomaValores();
-            return v;
         }
         public double SomaValores()
         {

@@ -1,11 +1,5 @@
 ﻿using ctrgamer._03_entidades;
 using ctrgamer._03_entidades.DTO.carrinho;
-using System;
-using System.Collections.Generic;
-using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ctrgamer._02_Repositorio.Interfaces
 {

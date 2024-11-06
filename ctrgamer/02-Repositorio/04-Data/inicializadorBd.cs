@@ -59,12 +59,10 @@ namespace ctrgamer._04_Data
 
                 // Criar tabela de compras
                 commandoSQL = @"
-                    CREATE TABLE IF NOT EXISTS Compras (
+                    CREATE TABLE IF NOT EXISTS Vendas (
                         ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                        carrinhoid INTEGER,
-                        usuarioid INTEGER,
-                        tipodepagamento TEXT,
-                        Datacompra DATETIME NOT NULL,
+                        carrinhoid INTEGER,   
+                        Metododepagamento TEXT,
                         ValorFinal REAL not null
                     );";
                 ExecuteCommand(connection, commandoSQL);

@@ -1,4 +1,6 @@
 using apictrgamer;
+using Core._01_Services;
+using Core._02_Repository;
 using ctrgamer;
 using ctrgamer._01_service;
 using ctrgamer._01_service.Interfaces;
@@ -29,16 +31,16 @@ builder.Services.AddScoped<ICarrinhoservice, carrinhoService>();
 //categoria
 builder.Services.AddScoped<ICategoriaReposytor, categoriarepositor>();
 builder.Services.AddScoped<Icategoriasservice, categoriaservice>();
-//compra
-builder.Services.AddScoped<IComprarepositor, comprarepositor>();
-builder.Services.AddScoped<Icomprasservice, compraservice>();
+
 //jogo
 builder.Services.AddScoped<IJogosReposytor, Jogorepositorio>();
 builder.Services.AddScoped<IJogoservice, jogosservice>();
 //jogocategoria
 builder.Services.AddScoped<IJogocategoriaRepositor, jogocategoriarepositor>();
 builder.Services.AddScoped<IJogocategoriaservice, jogocategoriaservice>();
-
+//venda
+builder.Services.AddScoped<IVendarepositor, Vendarepositor>();
+builder.Services.AddScoped<IVendaservice, vendaservice>();
 var app = builder.Build();
 InicializadorBd.Inicializador();
 // Configure the HTTP request pipeline.
