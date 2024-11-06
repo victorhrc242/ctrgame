@@ -59,7 +59,7 @@ namespace ctrgamer._02_Repositorio
         public List<Reeadcarrinho> ListarCarrinhoDoUsuario(int usuarioId)
         {
             using var connection = new SQLiteConnection(ConnectionString);
-            List<Carrinho> list = connection.Query<Carrinho>($"SELECT Id, jogoid,pagamentoid, usuarioid FROM carrinhos WHERE UsuarioId = {usuarioId}").ToList();
+            List<Carrinho> list = connection.Query<Carrinho>($"SELECT Id, jogoid, usuarioid FROM carrinhos WHERE UsuarioId = {usuarioId}").ToList();
             List<Reeadcarrinho> listDTO = TransformarListaCarrinhoEmCarrinhoDTO(list);
             return listDTO;
         }

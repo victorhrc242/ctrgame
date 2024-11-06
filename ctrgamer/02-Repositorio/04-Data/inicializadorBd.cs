@@ -62,8 +62,9 @@ namespace ctrgamer._04_Data
                     CREATE TABLE IF NOT EXISTS Vendas (
                         ID INTEGER PRIMARY KEY AUTOINCREMENT,
                         carrinhoid INTEGER,   
-                        Metododepagamento TEXT,
-                        ValorFinal REAL not null
+                        data_de_compra DATETIME,
+                        Usuarioid INTEGER,
+                        jogoid INTEGER
                     );";
                 ExecuteCommand(connection, commandoSQL);
 

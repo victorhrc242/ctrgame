@@ -1,6 +1,5 @@
-﻿using Core._03_Entidades;
-using ctrgamer._02_Repositorio.Interfaces;
-using ctrgamer._03_entidades.DTO.Compra;
+﻿using ctrgamer._03_entidades.DTO.Compra;
+using ctrgamer._03_entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,17 +10,16 @@ namespace ctrgamer._01_service.Interfaces
 {
     public interface IVendaservice
     {
-
-
-        public void Adicionar(Venda usuario);
-
-
-        public void Remover(int id);
-
+        public void Adicionar(Venda carrinho);
 
         public List<Venda> Listar();
-        public Venda BuscarTimePorId(int id);
-        public List<Reavend> ListarCarrinhoDoUsuario(int usuarioId);
-      
+
+
+
+        public List<Readvenda> ListarCarrinhoDoUsuario(int usuarioId);
+        public void Remover(int id);
+
+        public void editar(Venda c);
+       
     }
 }
