@@ -29,7 +29,7 @@ namespace ctrgamer._01_service
         }
 
         
-        public List<Readvenda> ListarCarrinhoDoUsuario(int usuarioId)
+        public List<ReadvendaDTO> ListarCarrinhoDoUsuario(int usuarioId)
         {
             return vendareposito.ListarCarrinhoDoUsuario(usuarioId);
         }

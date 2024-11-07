@@ -4,6 +4,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <DocumentationFile>\\server\ALUNOS DEV\victor.costa\2 semestre log ling\trabalho\ctrgamer\apictrgamer\MinhaAPI.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
