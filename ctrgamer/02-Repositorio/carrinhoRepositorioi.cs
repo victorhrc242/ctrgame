@@ -51,7 +51,7 @@ namespace ctrgamer._02_Repositorio
             {
                 Reeadcarrinho readCarrinho = new Reeadcarrinho();
                 readCarrinho.usuario = _repositoryusuario.Buscarporid(car.usuarioid);
-                readCarrinho.jogo = _reposytoryjogo.Buscarporid(car.carrinhoid);
+                readCarrinho.jogo = _reposytoryjogo.Buscarporid(car.JogoId);
                 listDTO.Add(readCarrinho);
             }
             return listDTO;

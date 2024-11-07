@@ -14,7 +14,7 @@ namespace ctrgamer._02_Repositorio.Interfaces
         public void Adicionar(Venda carrinho);
 
         public List<Venda> Listar();
-        public List<ReadvendaDTO> ListarCarrinhoDoUsuario(int usuarioId);
+        public List<Readvenda> ListarCarrinhoDoUsuario(int usuarioId);
 
         public Venda Buscarporid(int id);
 
