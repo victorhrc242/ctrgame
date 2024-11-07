@@ -16,7 +16,7 @@ namespace ctrgamer._01_service.Interfaces
 
 
 
-        public List<Readvenda> ListarCarrinhoDoUsuario(int usuarioId);
+        public List<ReadvendaDTO> ListarCarrinhoDoUsuario(int usuarioId);
         public void Remover(int id);
 
         public void editar(Venda c);

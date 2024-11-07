@@ -29,24 +29,26 @@ public class VendaReposytor:IVendarepositor
         return list;
     }
 
-    private List<Readvenda> TransformarListaCarrinhoEmCarrinhoDTO(List<Venda> list)
+    private List<ReadvendaDTO> TransformarListaCarrinhoEmCarrinhoDTO(List<Venda> list)
     {
-        List<Readvenda> listDTO = new List<Readvenda>();
+        List<ReadvendaDTO> listDTO = new List<ReadvendaDTO>();
 
         foreach (Venda car in list)
         {
-            Readvenda readCarrinho = new Readvenda();
-            readCarrinho.usuario = usuariorepositor1.Buscarporid(car.usuarioid);
-            readCarrinho.carrinho= carrinhorepositor1.Buscarporid(car.);
+            ReadvendaDTO readCarrinho = new ReadvendaDTO();
+
+            // readCarrinho.carrinhoid.usuarioid = carrinhorepositor1.Buscarporid(car.usuario);
+            readCarrinho.Carrinho.usuarioid = car.Usuarioid;
+            readCarrinho.Carrinho.carrinhoid = car.carrinhoid;
             listDTO.Add(readCarrinho);
         }
         return listDTO;
     }
-    public List<Readvenda> ListarCarrinhoDoUsuario(int usuarioId)
+    public List<ReadvendaDTO> ListarCarrinhoDoUsuario(int usuarioId)
     {
         using var connection = new SQLiteConnection(ConnectionString);
         List<Venda> list = connection.Query<Venda>($"SELECT Id, Usuarioid,data_de_compra, carrinhoid FROM Vendas WHERE UsuarioId = {usuarioId}").ToList();
-        List<Readvenda> listDTO = TransformarListaCarrinhoEmCarrinhoDTO(list);
+        List<ReadvendaDTO> listDTO = TransformarListaCarrinhoEmCarrinhoDTO(list);
         return listDTO;
     }
     public Venda Buscarporid(int id)

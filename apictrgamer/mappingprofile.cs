@@ -11,7 +11,7 @@ namespace apictrgamer
         {
             CreateMap<ReadCategoria, JogoCategoria>().ReverseMap();
             CreateMap<Reeadcarrinho, Carrinho>().ReverseMap();
-            CreateMap<Venda, Readvenda>().ReverseMap();
+            CreateMap<Venda, ReadvendaDTO>().ReverseMap();
      
 
         }
