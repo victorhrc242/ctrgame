@@ -10,15 +10,15 @@ namespace ctrgamer._02_Repositorio.Interfaces
 {
     public interface IRevendedorRepositor
     {
-        void Adicionar(Reevendedor r);
+        void Adicionar(Revendedore r);
 
-        List<Reevendedor> listar();
+        List<Revendedore> listar();
 
-        Reevendedor Buscarporid(int id);
+        Revendedore Buscarporid(int id);
 
         void Remover(int id);
 
-        void editar(Reevendedor r);
+        void editar(Revendedore r);
      
     }
 }

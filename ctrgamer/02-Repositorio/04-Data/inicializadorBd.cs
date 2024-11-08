@@ -26,6 +26,19 @@ namespace ctrgamer._04_Data
                     );";
                 ExecuteCommand(connection, commandoSQL);
 
+                // Criar tabela de revendedores
+                commandoSQL = @"
+                    CREATE TABLE IF NOT EXISTS Revendedores (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        nome TEXT NOT NULL,
+                        empresa TEXT NOT NULL,
+                        senha   TEXT NOT NULL,
+                        idade INTEGER NOT NULL,
+                        cpf TEXT NOT NULL,
+                        cartão INTEGER NOT NULL
+                    );";
+                ExecuteCommand(connection, commandoSQL);
+
                 // Criar tabela de jogos
                 commandoSQL = @"
                     CREATE TABLE IF NOT EXISTS JOGOS (
@@ -65,7 +78,7 @@ namespace ctrgamer._04_Data
                         usuarioid INTEGER,
                         tipodepagamento TEXT,
                         Datacompra DATETIME NOT NULL,
-                        ValorFinal REAL not null
+                        ValorFinal REAL NOT NULL
                     );";
                 ExecuteCommand(connection, commandoSQL);
 
@@ -75,17 +88,6 @@ namespace ctrgamer._04_Data
                         ID INTEGER PRIMARY KEY AUTOINCREMENT,
                         jogoid INTEGER,
                         categoriaid INTEGER
-                    );";
-                ExecuteCommand(connection, commandoSQL);
-
-                // Criar tabela de revendedores
-                commandoSQL = @"
-                    CREATE TABLE IF NOT EXISTS Reevendedors (
-                        ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                        Nome TEXT NOT NULL,
-                        Endereco TEXT,
-                        Telefone TEXT,
-                        Email TEXT
                     );";
                 ExecuteCommand(connection, commandoSQL);
 

@@ -12,23 +12,22 @@ namespace apictrgamer.Controllers
     {
         private readonly IReevendedoservice service;
         private readonly IMapper mapper;
-        public revendedorcontroller(IMapper _mapper, IConfiguration configuration,reevedendorservice_ reevedendorservice)
+        public revendedorcontroller(IMapper _mapper, IConfiguration configuration,IReevendedoservice reevedendorservice)
         {
-            string connectionString = configuration.GetConnectionString("DefaultConnection");
             service = reevedendorservice;
             mapper= _mapper;
 
         }
 
         [HttpPost("adicionar-Revenddedor")]
-        public void adicionaraluno(Reevendedor u)
+        public void adicionaraluno(Revendedore u)
         {
-            Reevendedor usuario = mapper.Map<Reevendedor>(u);
+            Revendedore usuario = mapper.Map<Revendedore>(u);
             service.Adicionar(usuario);
         }
 
         [HttpGet("Listar-Revendedores")]
-        public List<Reevendedor> Listaraluno()
+        public List<Revendedore> Listaraluno()
         {
             return service.Listar();
         }
@@ -38,7 +37,7 @@ namespace apictrgamer.Controllers
             service.Remover(id);
         }
         [HttpPut("editar-Revendedor")]
-        public void editaraluno(Reevendedor usuario)
+        public void editaraluno(Revendedore usuario)
         {
             service.editar(usuario);
         }

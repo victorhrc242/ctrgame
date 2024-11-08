@@ -1,13 +1,8 @@
 ﻿using ctrgamer._03_entidades;
 using FrontEnd.DTOS;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http.Json;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace FrontEnd.PastaUC
+namespace Front_End_ADM.UsuarioU
 {
     public class UsuarioUC
     {
@@ -16,7 +11,7 @@ namespace FrontEnd.PastaUC
         {
             _client = cliente;
         }
-        public usuarioS FazreLogin(Usuariologindto usodto)
+        public usua FazreLogin(Usuariologindto usodto)
         {
             HttpResponseMessage response = _client.PostAsJsonAsync("usuario/fazer-login", usodto).Result;
             usuarioS usuario = response.Content.ReadFromJsonAsync<usuarioS>().Result;
@@ -25,9 +20,14 @@ namespace FrontEnd.PastaUC
 
         public void Cadastrarusuario(usuarioS usuario)
         {
-            HttpResponseMessage response = _client.PostAsJsonAsync("usuario/adicionar-usuario", usuario).Result;
+            HttpResponseMessage response = _client.PostAsJsonAsync("adicionar-Revenddedor", usuario).Result;
         }
 
-   
+        public List<usuarioS> ListarUsuarios()
+        {
+            return _client.GetFromJsonAsync<List<usuarioS>>("usuario/Listar-usuarios").Result;
+        }
+
+
     }
 }

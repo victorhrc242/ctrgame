@@ -2,6 +2,7 @@
 using ctrgamer._02_Repositorio;
 using ctrgamer._02_Repositorio.Interfaces;
 using ctrgamer._03_entidades;
+using FrontEnd.DTOS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,16 +18,16 @@ namespace ctrgamer._01_service
         {
             repositorio = revendedorRepositor;
         }
-        public void Adicionar(Reevendedor r)
+        public void Adicionar(Revendedore r)
         {
             repositorio.Adicionar(r);
         }
 
-        public List<Reevendedor> Listar()
+        public List<Revendedore> Listar()
         {
             return repositorio.listar();
         }
-        public void editar(Reevendedor r)
+        public void editar(Revendedore r)
         {
             repositorio.editar(r);
         }
@@ -34,6 +35,19 @@ namespace ctrgamer._01_service
         {
 
             repositorio.Remover(id);
+        }
+        public Revendedore FazerLogin(Usuariologindto usuarioLogin)
+        {
+            List<Revendedore> listUsuario = Listar();
+            foreach (Revendedore usuario in listUsuario)
+            {
+                if (usuario.nome == usuarioLogin.Username
+                    && usuario.senha == usuarioLogin.SENHA)
+                {
+                    return usuario;
+                }
+            }
+            return null;
         }
 
     }

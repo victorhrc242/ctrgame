@@ -21,38 +21,38 @@ namespace ctrgamer._02_Repositorio
             ConnectionString = configuration.GetConnectionString("DefaultConnection");
 
         }
-        public void Adicionar(Reevendedor r)
+        public void Adicionar(Revendedore r)
         {
             using var connection = new SQLiteConnection(ConnectionString);
-            connection.Insert<Reevendedor>(r);
+            connection.Insert<Revendedore>(r);
 
         }
-        public List<Reevendedor> listar()
+        public List<Revendedore> listar()
         {
             {
                 using var connection = new SQLiteConnection(ConnectionString);
                 {
-                    List<Reevendedor> u = connection.GetAll<Reevendedor>().ToList();
+                    List<Revendedore> u = connection.GetAll<Revendedore>().ToList();
                     return u;
                 }
             }
         }
-        public Reevendedor Buscarporid(int id)
+        public Revendedore Buscarporid(int id)
         {
             using var connection = new SQLiteConnection(ConnectionString);
-            return connection.Get<Reevendedor>(id);
+            return connection.Get<Revendedore>(id);
         }
         public void Remover(int id)
         {
             using var connection = new SQLiteConnection(ConnectionString);
-            Reevendedor novoproduto = Buscarporid(id);
-            connection.Delete<Reevendedor>(novoproduto);
+            Revendedore novoproduto = Buscarporid(id);
+            connection.Delete<Revendedore>(novoproduto);
         }
-        public void editar(Reevendedor r)
+        public void editar(Revendedore r)
         {
             using var connection = new SQLiteConnection(ConnectionString);
 
-            connection.Update<Reevendedor>(r);
+            connection.Update<Revendedore>(r);
         }
     }
 }

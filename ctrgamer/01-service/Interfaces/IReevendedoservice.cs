@@ -1,4 +1,5 @@
 ﻿using ctrgamer._03_entidades;
+using FrontEnd.DTOS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,15 +10,16 @@ namespace ctrgamer._01_service.Interfaces
 {
     public interface IReevendedoservice
     {
-        public void Adicionar(Reevendedor r);
+        public void Adicionar(Revendedore r);
 
 
-        public List<Reevendedor> Listar();
+        public List<Revendedore> Listar();
 
-        public void editar(Reevendedor r);
+        public void editar(Revendedore r);
 
         public void Remover(int id);
-      
+        public Revendedore FazerLogin(Usuariologindto usuarioLogin);
+        
 
 
     }
