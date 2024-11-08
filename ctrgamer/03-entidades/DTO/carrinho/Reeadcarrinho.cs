@@ -9,7 +9,7 @@ namespace ctrgamer._03_entidades.DTO.carrinho;
 
 public class Reeadcarrinho
 {
-    public int id {  get; set; }
+public int ID { get; set; }
 public usuarioS usuario { get; set; }
 public Jogo jogo { get; set; }
 }

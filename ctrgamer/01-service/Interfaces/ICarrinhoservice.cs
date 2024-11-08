@@ -20,8 +20,6 @@ namespace ctrgamer._01_service.Interfaces
         void editar(Carrinho c);
 
         void Remover(int id);
-     
-
-
+      
     }
 }

@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Core._03_Entidades;
 using ctrgamer._03_entidades;
 using ctrgamer._03_entidades.DTO.carrinho;
 using ctrgamer._03_entidades.DTO.Categorias;
@@ -12,8 +11,7 @@ namespace apictrgamer
         {
             CreateMap<ReadCategoria, JogoCategoria>().ReverseMap();
             CreateMap<Reeadcarrinho, Carrinho>().ReverseMap();
-            CreateMap<Reavend, Venda>().ReverseMap();
-     
+            CreateMap<ReadCompraDTO, Compra>().ReverseMap();
 
         }
     }

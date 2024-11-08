@@ -16,6 +16,6 @@ public Jogo jogo { get; set; }
 
     public override string ToString()
     {
-        return $"-jogoid:{jogo.ID}-Nome do jogo:{jogo.NOME} -preço do jogo: {jogo.preco}";
+        return $"Id: {ID} -jogoid:{jogo.ID}-Nome do jogo:{jogo.NOME} -preço do jogo: {jogo.preco}";
     }
 }
