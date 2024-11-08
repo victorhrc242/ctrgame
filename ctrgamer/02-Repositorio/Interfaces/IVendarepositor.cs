@@ -1,5 +1,5 @@
-﻿using ctrgamer._03_entidades.DTO.Compra;
-using ctrgamer._03_entidades;
+﻿using Core._03_Entidades;
+using ctrgamer._03_entidades.DTO.Compra;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -11,16 +11,16 @@ namespace ctrgamer._02_Repositorio.Interfaces
 {
     public interface IVendarepositor
     {
-        public void Adicionar(Venda carrinho);
-
-        public List<Venda> Listar();
-        public List<Readvenda> ListarCarrinhoDoUsuario(int usuarioId);
-
-        public Venda Buscarporid(int id);
+        public void Adicionar(Venda venda);
 
         public void Remover(int id);
 
-        public void editar(Venda c);
-       
+        public List<Venda> Listar();
+
+        public Venda BuscarPorId(int id);
+
+
+        public List<Reavend> ListarCarrinhoDoUsuario(int usuarioId);
+  
     }
 }

@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ctrgamer._03_entidades
+namespace Core._03_Entidades
 {
     public class Venda
     {
         public int id { get; set; }
-        public int usuarioid { get; set; }
-        public int  carrinhoid { get; set; }
-        public int jogoid { get; set; }
-        public DateTime data_de_compra { get; set; }
+        public  int  carrinhoid { get; set; }
+        public string Metododepagamento { get; set; }
+        public bool Valorfinal { get; set; }
     }
 }

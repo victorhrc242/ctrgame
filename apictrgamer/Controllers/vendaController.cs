@@ -1,43 +1,49 @@
-﻿using ctrgamer._03_entidades.DTO.Compra;
-using ctrgamer._03_entidades;
+﻿using AutoMapper;
+using Core._01_Services;
+using Core._03_Entidades;
 using ctrgamer._01_service.Interfaces;
+using ctrgamer._03_entidades.DTO.Compra;
 using Microsoft.AspNetCore.Mvc;
+using System.Data.SQLite;
 
-namespace apictrgamer.Controllers
+namespace API.Controllers
 {
-    
-    public class vendacontroller
-    {
-        private readonly IVendaservice vendasevice;
-        public vendacontroller(IVendaservice vendaservice,IConfiguration configuration)
-        {
-            vendasevice = vendaservice;
-        }
-        [HttpPost("adicinar-venda")]
-        public void Adicionar(Venda carrinho)
-        {
-            vendasevice.Adicionar(carrinho);
-        }
-        [HttpGet("listar-venda")]
-        public List<Venda> Listar()
-        {
-            return vendasevice.Listar();
-        }
+    [ApiController]
+    [Route("[controller]")]
 
-        [HttpGet("listar-venda-por-usuario")]
-        public List<Readvenda> ListarCarrinhoDoUsuario(int usuarioId)
+
+    public class vendaController : ControllerBase
+    {
+        private readonly IVendaservice _service;
+        private readonly IMapper _mapper;
+        public vendaController(IConfiguration config, IMapper mapper,IVendaservice vendaservice)
         {
-            return vendasevice.ListarCarrinhoDoUsuario(usuarioId);
+
+            _service = vendaservice;
+            _mapper = mapper;
         }
-        [HttpDelete("deleta-venda")]
-        public void Remover(int id)
+        [HttpPost("adicionar-usuario")]
+        public void AdicionarAluno(Venda venda)
         {
-            vendasevice.Remover(id);
+            _service.Adicionar(venda);
         }
-        [HttpPut("editar-venda")]
-        public void editar(Venda c)
+     
+        [HttpGet("listar-usuario")]
+        public List<Venda> ListarAluno()
         {
-            vendasevice.editar(c);
+            return _service.Listar();
+        }
+        [HttpPut("editar-usuario")]
+       
+        [HttpDelete("deletar-usuario")]
+        public void DeletarUsuario(int id)
+        {
+            _service.Remover(id);
+        }
+        [HttpGet("listar-compra-do-usuario")]
+        public List<Reavend> ListarCarrinhoDoUsuario(int usuarioId)
+        {
+       return  _service.ListarCarrinhoDoUsuario(usuarioId);
         }
     }
 }

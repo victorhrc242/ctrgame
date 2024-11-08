@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace ctrgamer._03_entidades.DTO.Compra
 {
-    public class Readvenda
+    public class Reavend
     {
-        public int ID { get; set; }
-        public usuarioS usuario { get; set;}
-        public Carrinho carrinho { get; set; }
-
+        public Carrinho carrinho {  get; set; }
     }
 }

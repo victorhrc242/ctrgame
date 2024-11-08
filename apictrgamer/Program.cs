@@ -1,9 +1,11 @@
 using apictrgamer;
+using Core._01_Services;
+using Core._02_Repository;
+using ctrgamer;
 using ctrgamer._01_service;
 using ctrgamer._01_service.Interfaces;
 using ctrgamer._02_Repositorio;
 using ctrgamer._02_Repositorio.Interfaces;
-using ctrgamer._03_entidades.DTO.Compra;
 using ctrgamer._04_Data;
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,8 +39,8 @@ builder.Services.AddScoped<IJogoservice, jogosservice>();
 builder.Services.AddScoped<IJogocategoriaRepositor, jogocategoriarepositor>();
 builder.Services.AddScoped<IJogocategoriaservice, jogocategoriaservice>();
 //venda
-builder.Services.AddScoped<IVendarepositor, VendaReposytor>();
-builder.Services.AddScoped<IVendaservice, Vendasrevice>();
+builder.Services.AddScoped<IVendarepositor, Vendarepositor>();
+builder.Services.AddScoped<IVendaservice, vendaservice>();
 var app = builder.Build();
 InicializadorBd.Inicializador();
 // Configure the HTTP request pipeline.
