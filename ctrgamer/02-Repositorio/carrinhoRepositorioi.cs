@@ -80,5 +80,13 @@ namespace ctrgamer._02_Repositorio
 
             connection.Update<Carrinho>(c);
         }
+        //guarda venda  do carrinho  
+        public void adicionar(Compra c)
+        {
+            using var connection = new SQLiteConnection(ConnectionString);
+
+            connection.Update<Compra>(c);
+        }
+
     }
 }
