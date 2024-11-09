@@ -33,6 +33,7 @@ namespace ctrgamer._02_Repositorio
         public void Adicionar(Carrinho carrinho)
         {
             using var connection = new SQLiteConnection(ConnectionString);
+            carrinho.Status = "Em andamento";  // Defina o status como "Em andamento" ao criar um novo carrinho
             connection.Insert<Carrinho>(carrinho);
         }
         public List<Carrinho> Listar()
@@ -59,10 +60,29 @@ namespace ctrgamer._02_Repositorio
         public List<Reeadcarrinho> ListarCarrinhoDoUsuario(int usuarioId)
         {
             using var connection = new SQLiteConnection(ConnectionString);
-            List<Carrinho> list = connection.Query<Carrinho>($"SELECT Id, jogoid,pagamentoid, usuarioid FROM carrinhos WHERE UsuarioId = {usuarioId}").ToList();
+
+            // Aqui, vamos filtrar os carrinhos com status "Em andamento"
+            List<Carrinho> list = connection.Query<Carrinho>($"SELECT Id, jogoid,  usuarioid, Status FROM carrinhos WHERE UsuarioId = {usuarioId} AND Status <> 'Finalizado'").ToList();
+
             List<Reeadcarrinho> listDTO = TransformarListaCarrinhoEmCarrinhoDTO(list);
             return listDTO;
         }
+        public List<Reeadcarrinho> ListarCarrinhoFinalizadoDoUsuario(int usuarioId)
+        {
+            using var connection = new SQLiteConnection(ConnectionString);
+
+            // Consulta para selecionar carrinhos onde o status é 'Finalizado' para o usuário específico
+            var query = "SELECT Id, jogoid,  usuarioid, Status FROM carrinhos WHERE UsuarioId = @UsuarioId AND Status = 'Finalizado'";
+
+            // Executa a consulta e mapeia para a lista de Carrinho
+            var carrinhos = connection.Query<Carrinho>(query, new { UsuarioId = usuarioId }).ToList();
+
+            // Mapeia os carrinhos para o DTO Reeadcarrinho
+            var carrinhosDto = TransformarListaCarrinhoEmCarrinhoDTO(carrinhos);
+
+            return carrinhosDto;
+        }
+
         public Carrinho Buscarporid(int id)
         {
             using var connection = new SQLiteConnection(ConnectionString);
@@ -81,11 +101,20 @@ namespace ctrgamer._02_Repositorio
             connection.Update<Carrinho>(c);
         }
         //guarda venda  do carrinho  
-        public void adicionar(Compra c)
+        public void FinalizarCompra(int carrinhoId)
         {
             using var connection = new SQLiteConnection(ConnectionString);
 
-            connection.Update<Compra>(c);
+            // Buscar carrinho
+            Carrinho carrinho = connection.Get<Carrinho>(carrinhoId);
+            if (carrinho != null)
+            {
+                // Alterar status para 'Finalizado'
+                carrinho.Status = "Finalizado";
+
+                // Atualizar o carrinho no banco de dados
+                connection.Update<Carrinho>(carrinho);
+            }
         }
 
     }

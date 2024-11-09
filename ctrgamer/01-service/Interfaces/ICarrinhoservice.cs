@@ -2,6 +2,7 @@
 using ctrgamer._03_entidades.DTO.carrinho;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,10 @@ namespace ctrgamer._01_service.Interfaces
         void editar(Carrinho c);
 
         void Remover(int id);
-      
+        public void FinalizarCompra(int carrinhoId);
+        public List<Reeadcarrinho> ObterCarrinhosFinalizadosPorUsuario(int usuarioId);
+
+
+
     }
 }

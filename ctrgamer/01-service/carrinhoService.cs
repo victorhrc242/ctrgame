@@ -6,6 +6,7 @@ using ctrgamer._03_entidades;
 using ctrgamer._03_entidades.DTO.carrinho;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,9 +46,20 @@ public class carrinhoService:ICarrinhoservice
 
             repositorio.Remover(id);
         }
-
-
+    public void FinalizarCompra(int carrinhoId)
+    {
+        repositorio.FinalizarCompra(carrinhoId);
     }
+    public List<Reeadcarrinho> ObterCarrinhosFinalizadosPorUsuario(int usuarioId)
+    {
+        // Chama o repositório para obter os carrinhos finalizados
+        var carrinhosFinalizados = repositorio.ListarCarrinhoFinalizadoDoUsuario(usuarioId);
+
+        return carrinhosFinalizados;
+    }
+
+
+}
 
 
 

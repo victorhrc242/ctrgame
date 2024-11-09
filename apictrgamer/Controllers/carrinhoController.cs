@@ -4,6 +4,7 @@ using ctrgamer._01_service.Interfaces;
 using ctrgamer._03_entidades;
 using ctrgamer._03_entidades.DTO.carrinho;
 using Microsoft.AspNetCore.Mvc;
+using System.Data.SQLite;
 
 namespace apictrgamer.Controllers
 {
@@ -49,6 +50,24 @@ namespace apictrgamer.Controllers
         public void editarcompra(Carrinho c)
         {
             service.editar(c);
+        }
+        [HttpPost("finalizar-compra")]
+        public void FinalizarCompra(int carrinhoId)
+        {
+            service.FinalizarCompra(carrinhoId);
+        }
+        [HttpGet("usuario/{usuarioId}/finalizados")]
+        public IActionResult ListarCarrinhosFinalizados(int usuarioId)
+        {
+            // Chama o serviço para obter os carrinhos finalizados
+            var carrinhosFinalizados = service.ObterCarrinhosFinalizadosPorUsuario(usuarioId);
+
+            if (carrinhosFinalizados == null || !carrinhosFinalizados.Any())
+            {
+                return NotFound("Nenhum carrinho finalizado encontrado.");
+            }
+
+            return Ok(carrinhosFinalizados);
         }
     }
 }

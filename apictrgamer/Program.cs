@@ -29,9 +29,7 @@ builder.Services.AddScoped<ICarrinhoservice, carrinhoService>();
 //categoria
 builder.Services.AddScoped<ICategoriaReposytor, categoriarepositor>();
 builder.Services.AddScoped<Icategoriasservice, categoriaservice>();
-//compra
-builder.Services.AddScoped<IComprarepositor, comprarepositor>();
-builder.Services.AddScoped<Icomprasservice, compraservice>();
+
 //jogo
 builder.Services.AddScoped<IJogosReposytor, Jogorepositorio>();
 builder.Services.AddScoped<IJogoservice, jogosservice>();

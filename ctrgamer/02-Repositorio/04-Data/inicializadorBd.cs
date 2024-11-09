@@ -51,14 +51,16 @@ namespace ctrgamer._04_Data
                 ExecuteCommand(connection, commandoSQL);
 
                 // Criar tabela de carrinhos
-                commandoSQL = @"
-                    CREATE TABLE IF NOT EXISTS carrinhos (
-                        ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                        jogoid INTEGER,
-                        pagamentoid INTEGER,
-                        usuarioid INTEGER
-                    );";
+                 commandoSQL = @"
+    CREATE TABLE IF NOT EXISTS carrinhos (
+        ID INTEGER PRIMARY KEY AUTOINCREMENT,
+        jogoid INTEGER,
+        usuarioid INTEGER,
+        Status TEXT DEFAULT 'Em andamento' -- Adiciona o campo Status com valor padrão
+    );";
+
                 ExecuteCommand(connection, commandoSQL);
+
 
                 // Criar tabela de categorias
                 commandoSQL = @"
