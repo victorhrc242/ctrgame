@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>apictrgamer</name>
+    </assembly>
+    <members>
+        <member name="M:apictrgamer.Controllers.avaliacaocontroller.adicionarAvaliacao(ctrgamer._03_entidades.Avaliacao)">
+            <summary>
+            Endpoint para adicionar uma avaliação
+            </summary>
+            <param name="u">Objeto DTO contendo as informações da avaliação a ser adicionada</param>
+        </member>
+        <member name="M:apictrgamer.Controllers.avaliacaocontroller.ListarAvaliacoes">
+            <summary>
+            Endpoint para listar todas as avaliações
+            </summary>
+        </member>
+        <member name="M:apictrgamer.Controllers.avaliacaocontroller.RemoverAvaliacao(System.Int32)">
+            <summary>
+            Endpoint para remover uma avaliação
+            </summary>
+            <param name="id">ID da avaliação a ser removida</param>
+        </member>
+        <member name="M:apictrgamer.Controllers.avaliacaocontroller.EditarAvaliacao(ctrgamer._03_entidades.Avaliacao)">
+            <summary>
+            Endpoint para editar as informações de uma avaliação
+            </summary>
+            <param name="usuario">Objeto contendo as novas informações da avaliação</param>
+        </member>
+        <member name="M:apictrgamer.Controllers.carrinhoController.AdicionarCarrinho(ctrgamer._03_entidades.Carrinho)">
+            <summary>
+            Endpoint para adicionar um carrinho de compras
+            </summary>
+            <param name="carrinhoDTO">Objeto DTO com as informações do carrinho</param>
+        </member>
+        <member name="M:apictrgamer.Controllers.carrinhoController.Listar">
+            <summary>
+            Endpoint para listar todos os carrinhos de compras
+            </summary>
+        </member>
+        <member name="M:apictrgamer.Controllers.carrinhoController.ListarCarrinhoDoUsuario(System.Int32)">
+            <summary>
+            Endpoint para listar os carrinhos de compras de um usuário específico
+            </summary>
+            <param name="usuarioid">ID do usuário cujos carrinhos queremos listar</param>
+        </member>
+        <member name="M:apictrgamer.Controllers.carrinhoController.RemoverCompra(System.Int32)">
+            <summary>
+            Endpoint para remover uma compra (carrinho de compras)
+            </summary>
+            <param name="id">ID do carrinho a ser removido</param>
+        </member>
+        <member name="M:apictrgamer.Controllers.carrinhoController.EditarCompra(ctrgamer._03_entidades.Carrinho)">
+            <summary>
+            Endpoint para editar um carrinho de compras
+            </summary>
+            <param name="carrinho">Objeto contendo as novas informações do carrinho</param>
+        </member>
+        <member name="M:apictrgamer.Controllers.carrinhoController.FinalizarCompra(System.Int32)">
+            <summary>
+            Endpoint para finalizar uma compra
+            </summary>
+            <param name="carrinhoId">ID do carrinho a ser finalizado</param>
+        </member>
+        <member name="M:apictrgamer.Controllers.carrinhoController.ListarCarrinhosFinalizados(System.Int32)">
+            <summary>
+            Endpoint para listar carrinhos finalizados de um usuário específico
+            </summary>
+            <param name="usuarioId">ID do usuário cujos carrinhos finalizados queremos listar</param>
+        </member>
+        <member name="M:apictrgamer.Controllers.categoriacontroller.adicionarCategoria(ctrgamer._03_entidades.Categoria)">
+            <summary>
+            Endpoint para adicionar uma categoria
+            </summary>
+            <param name="u">Objeto DTO contendo as informações da categoria a ser adicionada</param>
+        </member>
+        <member name="M:apictrgamer.Controllers.categoriacontroller.ListarCategorias">
+            <summary>
+            Endpoint para listar todas as categorias
+            </summary>
+        </member>
+        <member name="M:apictrgamer.Controllers.categoriacontroller.RemoverCategoria(System.Int32)">
+            <summary>
+            Endpoint para remover uma categoria
+            </summary>
+            <param name="id">ID da categoria a ser removida</param>
+        </member>
+        <member name="M:apictrgamer.Controllers.categoriacontroller.EditarCategoria(ctrgamer._03_entidades.Categoria)">
+            <summary>
+            Endpoint para editar as informações de uma categoria
+            </summary>
+            <param name="usuario">Objeto contendo as novas informações da categoria</param>
+        </member>
+        <member name="M:apictrgamer.Controllers.jogocatecontroller.adicionarCategoria(ctrgamer._03_entidades.JogoCategoria)">
+            <summary>
+            Endpoint para adicionar uma categoria de jogo
+            </summary>
+            <param name="u">Objeto DTO contendo as informações da categoria de jogo a ser adicionada</param>
+        </member>
+        <member name="M:apictrgamer.Controllers.jogocatecontroller.ListarCategorias">
+            <summary>
+            Endpoint para listar todas as categorias de jogos
+            </summary>
+        </member>
+        <member name="M:apictrgamer.Controllers.jogocatecontroller.ListarJogosPorCategoria(System.Int32)">
+            <summary>
+            Endpoint para listar jogos por categoria
+            </summary>
+            <param name="Jogocategoria">ID da categoria de jogos a ser listada</param>
+        </member>
+        <member name="M:apictrgamer.Controllers.jogocatecontroller.RemoverCategoria(System.Int32)">
+            <summary>
+            Endpoint para remover uma categoria de jogo
+            </summary>
+            <param name="id">ID da categoria de jogo a ser removida</param>
+        </member>
+        <member name="M:apictrgamer.Controllers.jogocatecontroller.EditarCategoria(ctrgamer._03_entidades.JogoCategoria)">
+            <summary>
+            Endpoint para editar as informações de uma categoria de jogo
+            </summary>
+            <param name="usuario">Objeto contendo as novas informações da categoria de jogo</param>
+        </member>
+        <member name="M:apictrgamer.Controllers.jogoscontroller.adicionarJogo(ctrgamer._03_entidades.Jogo)">
+            <summary>
+            Endpoint para adicionar um jogo
+            </summary>
+            <param name="j">Objeto DTO contendo as informações do jogo a ser adicionado</param>
+        </member>
+        <member name="M:apictrgamer.Controllers.jogoscontroller.ListarJogos">
+            <summary>
+            Endpoint para listar todos os jogos
+            </summary>
+        </member>
+        <member name="M:apictrgamer.Controllers.jogoscontroller.RemoverJogo(System.Int32)">
+            <summary>
+            Endpoint para remover um jogo
+            </summary>
+            <param name="id">ID do jogo a ser removido</param>
+        </member>
+        <member name="M:apictrgamer.Controllers.jogoscontroller.EditarJogo(ctrgamer._03_entidades.Jogo)">
+            <summary>
+            Endpoint para editar as informações de um jogo
+            </summary>
+            <param name="J">Objeto contendo as novas informações do jogo</param>
+        </member>
+        <member name="M:apictrgamer.Controllers.revendedorcontroller.adicionaraluno(ctrgamer._03_entidades.Revendedore)">
+            <summary>
+            Endpoint para adicionar um revendedor
+            </summary>
+            <param name="u">Objeto DTO com as informações do revendedor</param>
+        </member>
+        <member name="M:apictrgamer.Controllers.revendedorcontroller.Listaraluno">
+            <summary>
+            Endpoint para listar todos os revendedores
+            </summary>
+        </member>
+        <member name="M:apictrgamer.Controllers.revendedorcontroller.Removeralunoaluno(System.Int32)">
+            <summary>
+            Endpoint para remover um revendedor
+            </summary>
+            <param name="id">ID do revendedor a ser removido</param>
+        </member>
+        <member name="M:apictrgamer.Controllers.revendedorcontroller.editaraluno(ctrgamer._03_entidades.Revendedore)">
+            <summary>
+            Endpoint para editar um revendedor
+            </summary>
+            <param name="usuario">Objeto contendo as novas informações do revendedor</param>
+        </member>
+        <member name="M:apictrgamer.Controllers.usuarioController.adicionaraluno(ctrgamer._03_entidades.usuarioS)">
+            <summary>
+            Método para adicionar um usuário (aluno)
+            </summary>
+            <param name="u">O objeto de entrada, que representa um novo usuário</param>
+        </member>
+        <member name="M:apictrgamer.Controllers.usuarioController.FazerLogin(FrontEnd.DTOS.Usuariologindto)">
+            <summary>
+            Método para fazer o login de um usuário
+            </summary>
+            <param name="usuarioLogin">DTO com as credenciais para login</param>
+        </member>
+        <member name="M:apictrgamer.Controllers.usuarioController.Listaraluno">
+            <summary>
+            Método para listar todos os usuários
+            </summary>
+        </member>
+        <member name="M:apictrgamer.Controllers.usuarioController.Removeralunoaluno(System.Int32)">
+            <summary>
+            Método para remover um usuário pelo seu ID
+            </summary>
+            <param name="id">ID do usuário a ser removido</param>
+        </member>
+        <member name="M:apictrgamer.Controllers.usuarioController.editaraluno(ctrgamer._03_entidades.usuarioS)">
+            <summary>
+            Método para editar as informações de um usuário
+            </summary>
+            <param name="usuario">Objeto contendo as novas informações do usuário</param>
+        </member>
+    </members>
+</doc>
